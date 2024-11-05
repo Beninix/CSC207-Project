@@ -1,10 +1,10 @@
 # CSC207-Project
 
-## Team Members
-Emily Tchong emhatchong
-Lillian Chan  lill-chan
-Sarah Ko IcedLemonLoaf
-Brandon Bounsophinh beninix
+## Team Members 
+Emily Tchong emhatchong  
+Lillian Chan  lill-chan  
+Sarah Ko IcedLemonLoaf  
+Brandon Bounsophinh beninix  
 
 ## User Stories
 ### Lilian C. User Story
