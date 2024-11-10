@@ -10,6 +10,7 @@ import use_case.note.NoteDataAccessInterface;
 import use_case.note.NoteInteractor;
 import use_case.note.NoteOutputBoundary;
 import view.NoteView;
+import view.SearchView;
 
 /**
  * Builder for the Note Application.
