@@ -1,4 +1,6 @@
-public class nutrition {
+package entity;
+
+public class Nutrition {
     int calories;
     int fat;
     int cholesterol;
@@ -7,7 +9,7 @@ public class nutrition {
     int sugar;
     int protein;
 
-    public nutrition(int calories, int protein, int sugar, int fiber, int sodium, int cholesterol, int fat) {
+    public Nutrition(int calories, int protein, int sugar, int fiber, int sodium, int cholesterol, int fat) {
         this.calories = calories;
         this.protein = protein;
         this.sugar = sugar;
@@ -16,7 +18,15 @@ public class nutrition {
         this.cholesterol = cholesterol;
         this.fat = fat;
     }
-
+    public void printNutrition(){
+        System.out.println("Calories: " + calories);
+        System.out.println("Protein: " + protein);
+        System.out.println("Sugar: " + sugar);
+        System.out.println("Fiber: " + fiber);
+        System.out.println("Sodium: " + sodium);
+        System.out.println("Cholesterol: " + cholesterol);
+        System.out.println("Fat: " + fat);
+    }
     public int getCholesterol() {
         return cholesterol;
     }

@@ -1,9 +1,11 @@
-public class day {
+package entity;
+
+public class Day {
     private Recipe breakfast;
     private Recipe lunch;
     private Recipe dinner;
 
-    public day(Recipe breakfast, Recipe lunch, Recipe dinner) {
+    public Day(Recipe breakfast, Recipe lunch, Recipe dinner) {
         this.breakfast = breakfast;
         this.lunch = lunch;
         this.dinner = dinner;
