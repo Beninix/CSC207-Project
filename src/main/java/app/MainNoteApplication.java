@@ -1,8 +1,6 @@
 package app;
 
-import data_access.DBNoteDataAccessObject;
-import use_case.note.NoteDataAccessInterface;
-import view.BuildAppWindow;
+import view.LoginView;
 import view.SearchView;
 
 /**
@@ -55,6 +53,6 @@ public class MainNoteApplication {
 //               .addNoteView()
 //               .addNoteUseCase().build().setVisible(true);
 
-        BuildAppWindow buildAppWindow = new BuildAppWindow(new SearchView());
+        BuildAppWindow buildAppWindow = new BuildAppWindow(new LoginView());
     }
 }
