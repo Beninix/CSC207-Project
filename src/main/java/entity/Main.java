@@ -58,36 +58,35 @@ public class Main {
         Recipe recipe3 = new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
         user.addRecipe(recipe3);
 
+        while(true){
+            List<String> dietTypes = Arrays.asList("vegan", "vegetarian", "glutenFree", "dairyFree");
 
-        List<String> dietTypes = Arrays.asList("vegan", "vegetarian", "glutenFree", "dairyFree");
+            diets = new HashMap<String, Boolean>();
 
-        diets = new HashMap<String, Boolean>();
+            //Pick diets to search for
+            System.out.println("Please enter either Y or N for each dietary restriction, then hit enter:");
 
-        //Pick diets to search for
-        System.out.println("Please enter either Y or N for each dietary restriction, then hit enter:");
+            for (String diet : dietTypes) {
+                System.out.println(diet + "?");
+                Scanner scanner = new Scanner(System.in);
+                String input = scanner.next();
+                if (input.equals("Y")) {
+                    diets.put(diet, true);
+                } else {
+                    diets.put (diet, false);
+                }
+            }
 
-        for (String diet : dietTypes) {
-            System.out.println(diet + "?");
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.next();
-            if (input.equals("Y")) {
-                diets.put(diet, true);
+            List<Recipe>search = RecipeSearch.dietSearch(user.getRecipeCollection(), diets);
+
+            if (!search.isEmpty()) {
+                for (Recipe r : search) {
+                    System.out.println("Found: " + r.getName());
+                    r.printRecipe();
+                }
             } else {
-                diets.put (diet, false);
+                System.out.println("Sorry, no recipes found.");
             }
         }
-
-        List<Recipe>search = RecipeSearch.dietSearch(user.getRecipeCollection(), diets);
-
-        if (!search.isEmpty()) {
-            for (Recipe r : search) {
-                System.out.println("Found: " + r.getName());
-                r.printRecipe();
-            }
-        } else {
-            System.out.println("Sorry, no recipes found.");
-        }
-
-
     }
 }
