@@ -1,9 +1,6 @@
 package entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -61,18 +58,36 @@ public class Main {
         Recipe recipe3 = new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
         user.addRecipe(recipe3);
 
-        //Pick diets to search for
+
+        List<String> dietTypes = Arrays.asList("vegan", "vegetarian", "glutenFree", "dairyFree");
+
         diets = new HashMap<String, Boolean>();
-        diets.put("vegan",true);
-        diets.put("vegetarian",true);
-        diets.put("glutenFree",true);
-        diets.put("dairyFree",false);
-        //Search
-        List<Recipe>search = RecipeSearch.dietSearch(user.getRecipeCollection(), diets);
-        for(Recipe r : search) {
-            System.out.println("Found: " + r.getName());
-            r.printRecipe();
+
+        //Pick diets to search for
+        System.out.println("Please enter either Y or N for each dietary restriction, then hit enter:");
+
+        for (String diet : dietTypes) {
+            System.out.println(diet + "?");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.next();
+            if (input.equals("Y")) {
+                diets.put(diet, true);
+            } else {
+                diets.put (diet, false);
+            }
         }
+
+        List<Recipe>search = RecipeSearch.dietSearch(user.getRecipeCollection(), diets);
+
+        if (!search.isEmpty()) {
+            for (Recipe r : search) {
+                System.out.println("Found: " + r.getName());
+                r.printRecipe();
+            }
+        } else {
+            System.out.println("Sorry, no recipes found.");
+        }
+
 
     }
 }
