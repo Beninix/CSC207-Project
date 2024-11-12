@@ -1,6 +1,7 @@
 package app;
 
 import view.LoginView;
+import view.RecipeView;
 import view.SearchView;
 
 /**
@@ -53,6 +54,6 @@ public class MainNoteApplication {
 //               .addNoteView()
 //               .addNoteUseCase().build().setVisible(true);
 
-        BuildAppWindow buildAppWindow = new BuildAppWindow(new SearchView());
+        BuildAppWindow buildAppWindow = new BuildAppWindow(new RecipeView());
     }
 }
