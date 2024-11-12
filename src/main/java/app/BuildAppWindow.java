@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class BuildAppWindow {
 
-    public static JPanel buttonsPanel = new JPanel();
+    private static JPanel buttonsPanel = new JPanel();
 
     public static JButton logoutButton = new JButton("Logout");
     public static JButton bookmarksButton = new JButton("Bookmarks");
@@ -52,6 +52,9 @@ public class BuildAppWindow {
     }
 
     public static void buttonUnclickable(JButton button){
+
+
+
         button.setOpaque(true);
         button.setContentAreaFilled(true);
         button.setBorderPainted(false);
@@ -73,12 +76,12 @@ public class BuildAppWindow {
         button.setVisible(true);
     }
 
-    public static void buttonsPanelInvisible(JPanel panel){
-        panel.setVisible(false);
+    public static void buttonsPanelInvisible(){
+        buttonsPanel.setVisible(false);
     }
 
-    public static void buttonsPanelVisible(JPanel panel){
-        panel.setVisible(true);
+    public static void buttonsPanelVisible(){
+        buttonsPanel.setVisible(true);
     }
 
 

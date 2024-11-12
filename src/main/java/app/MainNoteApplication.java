@@ -53,6 +53,6 @@ public class MainNoteApplication {
 //               .addNoteView()
 //               .addNoteUseCase().build().setVisible(true);
 
-        BuildAppWindow buildAppWindow = new BuildAppWindow(new LoginView());
+        BuildAppWindow buildAppWindow = new BuildAppWindow(new SearchView());
     }
 }

@@ -4,8 +4,7 @@ import app.BuildAppWindow;
 
 import javax.swing.*;
 
-import static app.BuildAppWindow.buttonClickable;
-import static app.BuildAppWindow.buttonUnclickable;
+import static app.BuildAppWindow.*;
 
 /**
  * The LoginView for when the user has just started the program, and not logged in.
@@ -13,12 +12,15 @@ import static app.BuildAppWindow.buttonUnclickable;
 public class CalendarView extends JPanel{
 
     public CalendarView() {
-        buttonClickable(BuildAppWindow.searchButton);
-        buttonClickable(BuildAppWindow.homeButton);
-        buttonUnclickable(BuildAppWindow.calendarButton);
-        buttonClickable(BuildAppWindow.bookmarksButton);
-        buttonClickable(BuildAppWindow.settingsButton);
-        buttonClickable(BuildAppWindow.logoutButton);
+
+        buttonsPanelVisible();
+
+        buttonClickable(searchButton);
+        buttonClickable(homeButton);
+        buttonUnclickable(calendarButton);
+        buttonClickable(bookmarksButton);
+        buttonClickable(settingsButton);
+        buttonClickable(logoutButton);
     }
 
 }

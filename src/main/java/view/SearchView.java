@@ -13,14 +13,14 @@ public class SearchView extends JPanel{
 
     public SearchView() {
 
-        buttonsPanelVisible(buttonsPanel);
+        buttonsPanelVisible();
 
-        buttonUnclickable(BuildAppWindow.searchButton);
-        buttonClickable(BuildAppWindow.homeButton);
-        buttonClickable(BuildAppWindow.calendarButton);
-        buttonClickable(BuildAppWindow.bookmarksButton);
-        buttonClickable(BuildAppWindow.settingsButton);
-        buttonClickable(BuildAppWindow.logoutButton);
+        buttonUnclickable(searchButton);
+        buttonClickable(homeButton);
+        buttonClickable(calendarButton);
+        buttonClickable(bookmarksButton);
+        buttonClickable(settingsButton);
+        buttonClickable(logoutButton);
 
         JLabel jlabel = new JLabel("Search for recipes");
         this.add(jlabel);

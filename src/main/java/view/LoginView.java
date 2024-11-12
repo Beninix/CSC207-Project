@@ -4,6 +4,8 @@ import app.BuildAppWindow;
 
 import javax.swing.*;
 
+import java.awt.*;
+
 import static app.BuildAppWindow.*;
 
 /**
@@ -11,20 +13,26 @@ import static app.BuildAppWindow.*;
  */
 public class LoginView extends JPanel{
 
-    private static JTextField searchInputField = new JTextField(100);
+    private static JLabel loginInputLabel = new JLabel("Username: ");
+    private static JTextField loginInputField = new JTextField(25);
+    private static JLabel passwordInputLabel = new JLabel("Password: ");
+    private static JTextField passwordInputField = new JTextField(25);
     private static JButton loginButton = new JButton("Login");
 
+    private static JButton createAccountButton = new JButton("Create new account");
+
     public LoginView() {
-        buttonsPanelInvisible(buttonsPanel);
+        buttonsPanelInvisible();
+        this.setLayout(null);
+        loginInputLabel.setBounds(10,20,80,25);
+        loginInputField.setBounds(100,20,165,25);
+        passwordInputLabel.setBounds(10,20,80,25);
 
-//        buttonInvisible(BuildAppWindow.searchButton);
-//        buttonInvisible(BuildAppWindow.homeButton);
-//        buttonInvisible(BuildAppWindow.calendarButton);
-//        buttonInvisible(BuildAppWindow.bookmarksButton);
-//        buttonInvisible(BuildAppWindow.settingsButton);
-//        buttonInvisible(BuildAppWindow.logoutButton);
-
-        this.add(loginButton);
+        this.add(loginInputLabel);
+        this.add(loginInputField);
+//        this.add(loginButton);
+//        this.add(createAccountButton);
+        this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
 }
