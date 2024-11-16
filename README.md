@@ -66,19 +66,18 @@ Brandon Bounsophinh beninix
 
 ### Login, change password, then log out. 
 (precondition: user is not logged in)
-1. User logs in with their username and password.
+1. User submits username and password to log in.
 2. Search View is made visible to the user. (Default after logging in)
-3. User clicks on the "Settings" button.
+3. User selects "Settings" button.
 4. User enters old password and new password.
 5. System returns confirmation message.
-6. User logs out.
+6. User selects "Logout" button.
 7. Login View is made viewable to user.
    
 ### Create new user 
 (precondition: not logged in)
 1. User selects "Create account" button.
-2. User fills out username and password.
-3. User clicks "Submit" button.
+2. User submits username and password.
 4. System returns confirmation message.
 5. Search View is made viewable to user.
 
