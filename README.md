@@ -19,7 +19,7 @@ Brandon Bounsophinh beninix
 * Sandra wants to export her Bite Wise calendar, so that she can upload it to her personal digital calendar/organizer.
 ### Brandon B. User Story
 * Sandra wants to search through a list of recipes so that she can find recipes to try.
-* Sandra wants to view the contents in her virtual recipe box so that she can view, add or remove recipes from the box.
+* Sandra wants to view the list of recipes in her virtual recipe box.  
 * Sandra wants to filter the list of recipes so that she can find [filtering categories from spoonacular – suggestions: ingredients, diets, calories, cooking time (max) recipes. (diets to add; cheap, sustainable)  
 ### Team User Story
 * Sandra wants to select one recipe from a list of recipes or calendar view so that she can view the full instructions and nutritional information.
