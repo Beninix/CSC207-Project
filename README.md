@@ -27,7 +27,7 @@ Brandon Bounsophinh beninix
 
 ## Use Cases DRAFT
 ### Search, filter, view recipes (logged in)
-1. User clicks on "Search" navigation button.
+1. User selects "Search" navigation button.
 2. User enters search term(s).
 3. Optional: User selects filters.
 4. User hits enter.
@@ -35,39 +35,42 @@ Brandon Bounsophinh beninix
 
 ### View recipe (from search results, recipe box, or calendar)
 1. User selects recipe entry.
-2. Systems displays recipe in pop up window.
+2. Recipe View is made viewable to user.
 3. User closes recipe window.
 
 ### Add recipe to recipe box (from Recipe View)
-1. User clicks on "Add to recipe box" button
+1. User selects "Add to recipe box" button
 2. Systems sends confirmation message (pop-up)
 3. User closes pop-up.
   
 ### Add recipe to calendar (from Recipe View)
-1. User clicks on "Add to calendar" button.
-2. Calendar pop-up is made viewable to the user.
+1. User selects "Add to calendar" button.
+2. Date/Time selector pop-up is made viewable to the user.
 3. User selects a time slot.
 4. System returns confirmation message.
-5. User closes calendar pop-up.
+5. User closes Date/Time selector pop-up.
 
 ### View calendar and export calendar format file (.ics)
-1. User clicks on "Calendar" navigation button.
-2. User navigates to desired week in Calendar. (default view is current week)
-3. User clicks on "Export" button.
-4. System sends .ics file.
-5. ??
+1. User selects "Calendar" navigation button.
+2. Calendar View is made viewable to the user.
+3. User navigates to desired week in Calendar. (Default view is current week)
+4. User clicks on "Export" button.
+5. System sends .ics file.
+6. ??
 
-### Change password
+### Login and change password
 1. User logs in with their username and password.
-2. User clicks on the "Settings" button.
-3. User enters old password and new password.
-4. System sends confirmation message.
+2. Search View is made visible to the user. (Default after logging in)
+3. User clicks on the "Settings" button.
+4. User enters old password and new password.
+5. System sends confirmation message.
    
-### Create new user
-1. User clicks the "Create account" button.
+### Create new user (not logged in)
+1. User selects "Create account" button.
 2. User fills out username and password.
 3. User clicks "Submit" button.
 4. System sends confirmation message.
+5. Search View is made viewable to user.
 
 ### Notes
 * functionality of removing recipes from recipes box or calendar is not implemented.
