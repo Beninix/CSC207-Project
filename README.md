@@ -64,15 +64,21 @@ Brandon Bounsophinh beninix
 5. System returns .ics file.
 6. ??
 
-### Login, change password, then log out. 
+### Logout 
+(precondition: user is logged in)
+1. User selects "Logout" button.
+2. Login View is made viewable to user.
+
+### Login
 (precondition: user is not logged in)
 1. User submits username and password to log in.
 2. Search View is made visible to the user. (Default after logging in)
-3. User selects "Settings" button.
-4. User enters old password and new password.
-5. System returns confirmation message.
-6. User selects "Logout" button.
-7. Login View is made viewable to user.
+
+### Change password 
+(precondition: user is logged in)
+1. User selects "Settings" button.
+2. User enters old password and new password.
+3. System returns confirmation message.
    
 ### Create new user 
 (precondition: not logged in)
