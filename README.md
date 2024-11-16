@@ -22,7 +22,7 @@ Brandon Bounsophinh beninix
 * Sandra wants to view the list of recipes in her virtual recipe box.  
 * Sandra wants to filter the list of recipes so that she can find [filtering categories from spoonacular – suggestions: ingredients, diets, calories, cooking time (max) recipes. (diets to add; cheap, sustainable)  
 ### Team User Story
-* Sandra wants to select one recipe from a list of recipes or calendar view so that she can view the full instructions and nutritional information.
+* Sandra wants to select one recipe from the search results or recipe box or calendar, so that she can view the full instructions and nutritional information.
 
 ## Use Cases DRAFT
 ### Search, filter, view recipes (logged in)
