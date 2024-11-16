@@ -26,24 +26,29 @@ Brandon Bounsophinh beninix
 * Sandra wants to select one recipe from the search results or recipe box or calendar, so that she can view the full instructions and nutritional information.
 
 ## Use Cases DRAFT
-### Search, filter, view recipes (logged in)
+### Search, filter, view recipes 
+(precondition: user is logged in)
 1. User selects "Search" navigation button.
-2. User enters search term(s).
-3. Optional: User selects filters.
-4. User hits enter.
-5. System presents un/filtered list of results.
+2. Search View is made viewable to user.
+3. User enters search term(s).
+4. Optional: User selects filters.
+5. User hits enter.
+6. System returns un/filtered list of results.
 
-### View recipe (from search results, recipe box, or calendar)
+### View recipe 
+(precondition: Search View, or Recipe Box View, or Calendar View is viewable to logged in user)
 1. User selects recipe entry.
 2. Recipe View is made viewable to user.
 3. User closes recipe window.
 
-### Add recipe to recipe box (from Recipe View)
+### Add recipe to recipe box 
+(precondition: Recipe View is viewable to logged in  user)
 1. User selects "Add to recipe box" button
-2. Systems sends confirmation message (pop-up)
+2. Systems returns confirmation message (pop-up)
 3. User closes pop-up.
   
-### Add recipe to calendar (from Recipe View)
+### Add recipe to calendar 
+(precondition: Recipe View is viewable to logged in user)
 1. User selects "Add to calendar" button.
 2. Date/Time selector pop-up is made viewable to the user.
 3. User selects a time slot.
@@ -51,25 +56,30 @@ Brandon Bounsophinh beninix
 5. User closes Date/Time selector pop-up.
 
 ### View calendar and export calendar format file (.ics)
+(precondition: user is logged in)
 1. User selects "Calendar" navigation button.
 2. Calendar View is made viewable to the user.
 3. User navigates to desired week in Calendar. (Default view is current week)
 4. User clicks on "Export" button.
-5. System sends .ics file.
+5. System returns .ics file.
 6. ??
 
-### Login and change password
+### Login, change password, then log out. 
+(precondition: user is not logged in)
 1. User logs in with their username and password.
 2. Search View is made visible to the user. (Default after logging in)
 3. User clicks on the "Settings" button.
 4. User enters old password and new password.
-5. System sends confirmation message.
+5. System returns confirmation message.
+6. User logs out.
+7. Login View is made viewable to user.
    
-### Create new user (not logged in)
+### Create new user 
+(precondition: not logged in)
 1. User selects "Create account" button.
 2. User fills out username and password.
 3. User clicks "Submit" button.
-4. System sends confirmation message.
+4. System returns confirmation message.
 5. Search View is made viewable to user.
 
 ### Notes
