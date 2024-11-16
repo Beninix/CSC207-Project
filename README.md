@@ -16,7 +16,7 @@ Brandon Bounsophinh beninix
 ### Emily T. User Story
 * Sandra wants to save a recipe that she likes so that she can access it from her virtual recipe box.
 ### Sarah K. User Story
-* Sandra wants to print her schedule(calendar) out, so she exports Sandra wants to export her Bite Wise calendar, so that she can upload it to her personal digital calendar/organizer.
+* Sandra wants to export her Bite Wise calendar, so that she can upload it to her personal digital calendar/organizer.
 ### Brandon B. User Story
 * Sandra wants to search through a list of recipes so that she can find recipes to try.
 * Sandra wants to view the contents in her virtual recipe box so that she can view, add or remove recipes from the box.
