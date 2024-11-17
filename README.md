@@ -9,15 +9,16 @@ Brandon Bounsophinh beninix
 ## User Stories
 ### Lillian C. User Story
 * Sandra wants to add recipes to her Bite Wise calendar so that she can plan her meals.
+### Emily T. User Story
+* Sandra wants to save a recipe that she likes so that she can access it from her virtual recipe box.
 * Copy from given code base:
   * Sandra wants to login so that she can use Bite Wise and access her recipe box and calendar.
   * Sandra wants to logout so that she can end her session and her recipe box and calendar will be saved.
-  * Sandra wants to create an account so that she can use Bite Wise.
-  * Sandra wants to change her password so that she can keep her account secure. 
-### Emily T. User Story
-* Sandra wants to save a recipe that she likes so that she can access it from her virtual recipe box.
 ### Sarah K. User Story
 * Sandra wants to export her Bite Wise calendar, so that she can upload it to her personal digital calendar/organizer.
+* Copy from given code base:
+  * Sandra wants to create an account so that she can use Bite Wise.
+  * Sandra wants to change her password so that she can keep her account secure. 
 ### Brandon B. User Story
 * Sandra wants to search through a list of recipes so that she can find recipes to try.
 * Sandra wants to view the list of recipes in her virtual recipe box.  
