@@ -19,6 +19,7 @@ public class LoginView extends JPanel{
     private static JTextField passwordInputField = new JTextField(25);
     private static JButton loginButton = new JButton("Login");
 
+
     private static JButton createAccountButton = new JButton("Create new account");
 
     public LoginView() {
