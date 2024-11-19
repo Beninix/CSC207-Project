@@ -57,4 +57,16 @@ public class Recipe {
         return ingredients;
     }
 
+    public Recipe getAllDetails() {
+        Map<String, Object> details = new HashMap<>();
+        details.put("name", name);
+        details.put("ingredients", ingredients);
+        details.put("instructions", instructions);
+        details.put("cookingTime", cookingTime);
+        details.put("diets", diets);
+        details.put("nutrition", nutrition);
+        return (Recipe) details;
+        // this is new! and will def cause a merge conflict
+    }
+
 }
