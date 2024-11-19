@@ -2,10 +2,10 @@ package entity;
 
 import java.time.LocalDate;
 
-public class Calendar {
+public class CalendarExport {
     private LocalDate date;
 
-    public Calendar(int year, int month, int day) {
+    public CalendarExport(int year, int month, int day) {
         this.date = LocalDate.of(year, month, day);
     }
 
