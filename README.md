@@ -56,14 +56,17 @@ Brandon Bounsophinh beninix
 4. System returns confirmation message.
 5. User closes Date/Time selector pop-up.
 
-### View calendar and export calendar format file (.ics)
+### View calendar
 (precondition: user is logged in)
 1. User selects "Calendar" navigation button.
 2. Calendar View is made viewable to the user.
 3. User navigates to desired week in Calendar. (Default view is current week)
-4. User clicks on "Export" button.
-5. System returns .ics file.
-6. ??
+
+### Export calendar format file
+(precondition: Calendar View is viewable to logged in user)
+1. User clicks on "Export" button.
+2. System returns .ics file.
+3. ??
 
 ### Logout 
 (precondition: user is logged in)
