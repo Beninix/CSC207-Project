@@ -9,67 +9,57 @@ import java.util.List;
 import java.util.Map;
 
 public class RecipeInput {
-    private String recipeName;
-    private List<String> recipeIngredients = new ArrayList<String>();
-    private String recipeInstructions;
-    private int cookingTime;
-    private Map<String, Boolean> diets = new HashMap<String, Boolean>();
-    private Nutrition nutrition;
+    private Recipe recipe;
 
-    public RecipeInput(String recipeName, List<String> recipeIngredients, String recipeInstructions, int cookingTime, Map<String,Boolean> diets, Nutrition nutrition) {
-        this.recipeName = recipeName;
-        this.recipeIngredients = recipeIngredients;
-        this.recipeInstructions = recipeInstructions;
-        this.cookingTime = cookingTime;
-        this.diets = diets;
-        this.nutrition = nutrition;
+    public RecipeInput(Recipe recipe) {
+        this.recipe = recipe;
     }
 
     public void printRecipe() {
-        System.out.println(this.recipeName);
-        System.out.println(this.recipeIngredients);
-        System.out.println(this.recipeInstructions);
-        System.out.println(this.cookingTime);
-        System.out.println(this.diets);
-        this.nutrition.printNutrition();
+        System.out.println(recipe.getName());
+        System.out.println(recipe.getIngredients());
+        System.out.println(recipe.getInstructions());
+        System.out.println(recipe.getCookingTime());
+        System.out.println(recipe.getDiets());
+        System.out.println(recipe.getNutrition());
     }
 
     public String getName() {
-        return recipeName;
+        return recipe.getName();
     }
 
     public Nutrition getNutrition() {
-        return nutrition;
+        return recipe.getNutrition();
     }
 
     public Map<String, Boolean> getDiets() {
-        return diets;
+        return recipe.getDiets();
     }
 
     public int getCookingTime() {
-        return cookingTime;
+        return recipe.getCookingTime();
     }
 
     public String getInstructions() {
-        return recipeInstructions;
+        return recipe.getInstructions();
     }
 
     public int getTotalCalories() {
-        return nutrition.getCalories();
+        return recipe.getTotalCalories();
     }
 
     public List<String> getIngredients() {
-        return recipeIngredients;
+        return recipe.getIngredients();
     }
 
     public Recipe getAllDetails() {
         Map<String, Object> details = new HashMap<>();
-        details.put("name", recipeName);
-        details.put("ingredients", recipeIngredients);
-        details.put("instructions", recipeInstructions);
-        details.put("cookingTime", cookingTime);
-        details.put("diets", diets);
-        details.put("nutrition", nutrition);
+        details.put("name", recipe.getName());
+        details.put("ingredients", recipe.getIngredients());
+        details.put("instructions", recipe.getInstructions());
+        details.put("cookingTime", recipe.getCookingTime());
+        details.put("diets", recipe.getDiets());
+        details.put("nutrition", recipe.getNutrition());
         return (Recipe) details;
         // this is new! and will def cause a merge conflict
     }
