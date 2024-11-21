@@ -24,6 +24,8 @@ public class RecipeInput {
         System.out.println(recipe.getNutrition());
     }
 
+    public Recipe getRecipe(){return recipe;}
+
     public String getName() {
         return recipe.getName();
     }

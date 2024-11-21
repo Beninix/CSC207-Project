@@ -17,4 +17,6 @@ public interface RecipeDataAccessInterface {
      */
     void save(Recipe recipe);
 
+    String get();
+
 }

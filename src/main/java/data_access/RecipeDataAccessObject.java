@@ -1,11 +1,8 @@
 package data_access;
 
 import entity.Recipe;
-import use_case.note.DataAccessException;
 import use_case.note.Recipe.RecipeDataAccessInterface;
 import entity.User;
-
-import java.util.List;
 
 /**
  * The DAO for accessing recipes in the database.
@@ -44,4 +41,7 @@ public class RecipeDataAccessObject implements RecipeDataAccessInterface {
     public void save(Recipe recipe) {
         user.addRecipe(recipe);
     }
+
+    public String get() {return recipe.getName();}
+
 }
