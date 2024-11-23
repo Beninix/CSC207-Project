@@ -90,5 +90,8 @@ Brandon Bounsophinh beninix
 4. System returns confirmation message.
 5. Search View is made viewable to user.
 
+## Additional implementation (Team)
+* View Manager Model
+
 ### Notes
 * functionality of removing recipes from recipes collection or calendar is not implemented.
