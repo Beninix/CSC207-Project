@@ -1,8 +1,6 @@
 package app;
 
-import view.LoginView;
 import view.RecipeView;
-import view.SearchView;
 
 /**
  * An application where we can view and add to a note stored by a user.
