@@ -13,6 +13,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import interface_adapter.login.LoginUserDataAccessInterface;
+// import use_case.change_password.ChangePasswordUserDataAccessInterface;
+// import use_case.signup.SignupUserDataAccessInterface;
 
 /**
  * The DAO for user data.
@@ -63,8 +65,7 @@ public class DBUserDataAccessObject implements LoginUserDataAccessInterface {
 
     @Override
     public void setCurrentUsername(String name) {
-        // this isn't implemented for the lab
-    }
+        // this isn't implemented for the lab }
 
     @Override
     public boolean existsByName(String username) {
@@ -78,7 +79,7 @@ public class DBUserDataAccessObject implements LoginUserDataAccessInterface {
             final Response response = client.newCall(request).execute();
 
             final JSONObject responseBody = new JSONObject(response.body().string());
-
+          
             return responseBody.getInt(STATUS_CODE_LABEL) == SUCCESS_CODE;
         }
         catch (IOException | JSONException ex) {

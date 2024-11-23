@@ -22,6 +22,7 @@ import use_case.note.login.LoginViewModel;
 /**
  * The View for when the user is logging into the program.
  */
+
 public class LoginView extends JPanel implements ActionListener, PropertyChangeListener {
 
     private final String viewName = "log in";
