@@ -2,6 +2,7 @@ package entity;
 
 import java.util.ArrayList;
 
+
 /**
  * The representation of a password-protected user for our program.
  */
@@ -27,4 +28,12 @@ public class User {
         recipeCollection.add(recipe);
     }
     public ArrayList<Recipe> getRecipeCollection() {return recipeCollection;}
+    public String getRecipe(String recipeName){
+        for (int i = 0; i < recipeCollection.size(); i++){
+            if (recipeCollection.get(i).getName().equals(recipeName)){
+                return recipeCollection.get(i).getName();
+            }
+        }
+        return null;
+    }
 }
