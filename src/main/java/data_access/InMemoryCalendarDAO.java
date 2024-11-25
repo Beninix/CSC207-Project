@@ -59,6 +59,6 @@ public class InMemoryCalendarDAO {
      */
     public static void main(String[] args) {
         InMemoryCalendarDAO testWeekDAO = new InMemoryCalendarDAO();
-        System.out.println(testWeekDAO.chosenWeek);
+        System.out.println(testWeekDAO.getChosenWeek());
     }
 }
