@@ -1,26 +1,58 @@
 package view;
 
-import app.BuildAppWindow;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
-import static app.BuildAppWindow.*;
+import interface_adapter.calendar.CalendarViewModel;
+import interface_adapter.change_password.ChangePasswordController;
+import interface_adapter.change_password.LoggedInState;
+import interface_adapter.change_password.LoggedInViewModel;
+import interface_adapter.logout.LogoutController;
 
 /**
- * The LoginView for when the user has just started the program, and not logged in.
+ * SearchView for when the user is logged into the program.
  */
-public class CalendarView extends JPanel{
+public class CalendarView extends JPanel implements ActionListener, PropertyChangeListener {
+    private final String viewName = "calendar";
 
-    public CalendarView() {
+    public CalendarView(CalendarViewModel calendarViewModel) {
 
-        buttonsPanelVisible();
-
-        buttonClickable(searchButton);
-        buttonClickable(homeButton);
-        buttonUnclickable(calendarButton);
-        buttonClickable(bookmarksButton);
-        buttonClickable(settingsButton);
-        buttonClickable(logoutButton);
     }
+
+    public String getViewName() { return viewName; }
+
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    /**
+     * This method gets called when a bound property is changed.
+     *
+     * @param evt A PropertyChangeEvent object describing the event source
+     *            and the property that has changed.
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+    }
+
 
 }

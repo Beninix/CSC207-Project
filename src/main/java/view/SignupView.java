@@ -30,15 +30,13 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
     private final JTextField usernameInputField = new JTextField(15);
     private final JPasswordField passwordInputField = new JPasswordField(15);
     private final JPasswordField repeatPasswordInputField = new JPasswordField(15);
-    private final SignupController signupController;
+    private SignupController signupController;
 
     private final JButton signUp;
     private final JButton cancel;
     private final JButton toLogin;
 
-    public SignupView(SignupController controller, SignupViewModel signupViewModel) {
-
-        this.signupController = controller;
+    public SignupView(SignupViewModel signupViewModel) {
         this.signupViewModel = signupViewModel;
         signupViewModel.addPropertyChangeListener(this);
 
@@ -193,5 +191,9 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
 
     public String getViewName() {
         return viewName;
+    }
+
+    public void setSignupController(SignupController controller) {
+        this.signupController = controller;
     }
 }

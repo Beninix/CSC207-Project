@@ -7,12 +7,6 @@ import entity.User;
  */
 public interface SignupUserDataAccessInterface {
 
-    User get(String username);
-
-    void setCurrentUser(String username);
-
-    String getCurrentUser();
-
     /**
      * Checks if the given username exists.
      * @param username the username to look for

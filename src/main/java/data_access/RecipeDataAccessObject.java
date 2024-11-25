@@ -1,8 +1,8 @@
 package data_access;
 
 import entity.Recipe;
-import use_case.note.Recipe.RecipeDataAccessInterface;
-import entity.User;
+import use_case.save_recipe.RecipeDataAccessInterface;
+import entity.CommonUser;
 
 /**
  * The DAO for accessing recipes in the database.
@@ -20,9 +20,9 @@ import entity.User;
  */
 public class RecipeDataAccessObject implements RecipeDataAccessInterface {
     private final Recipe recipe;
-    private final User user;
+    private final CommonUser user;
 
-    public RecipeDataAccessObject(Recipe recipe, User user) {
+    public RecipeDataAccessObject(Recipe recipe, CommonUser user) {
         this.recipe = recipe;
         this.user = user;
     }
