@@ -1,29 +1,56 @@
 package view;
 
-import app.BuildAppWindow;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
-import static app.BuildAppWindow.*;
+import interface_adapter.change_password.ChangePasswordController;
+import interface_adapter.change_password.LoggedInState;
+import interface_adapter.change_password.LoggedInViewModel;
+import interface_adapter.logout.LogoutController;
+import interface_adapter.recipe.RecipeViewModel;
+import interface_adapter.search.SearchViewModel;
 
 /**
- * The LoginView for when the user has just started the program, and not logged in.
+ * SearchView for when the user is logged into the program.
  */
-public class SearchView extends JPanel{
+public class SearchView extends JPanel implements ActionListener, PropertyChangeListener {
+    private final String viewName = "search";
 
-    public SearchView() {
+    public SearchView(SearchViewModel searchViewModel) {
 
-        buttonsPanelVisible();
+    }
+    public String getViewName() { return viewName; }
 
-        buttonUnclickable(searchButton);
-        buttonClickable(homeButton);
-        buttonClickable(calendarButton);
-        buttonClickable(bookmarksButton);
-        buttonClickable(settingsButton);
-        buttonClickable(logoutButton);
+    /**
+     * Invoked when an action occurs.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
-        JLabel jlabel = new JLabel("Search for recipes");
-        this.add(jlabel);
     }
 
+    /**
+     * This method gets called when a bound property is changed.
+     *
+     * @param evt A PropertyChangeEvent object describing the event source
+     *            and the property that has changed.
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+    }
 }

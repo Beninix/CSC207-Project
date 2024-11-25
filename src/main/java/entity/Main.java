@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //Create user
-        User user = new User("a","b");
+        CommonUser user = new CommonUser("a","b");
 
         //Add examples
         String name = "PB&J Sandwich";

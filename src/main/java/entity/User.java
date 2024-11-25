@@ -2,38 +2,30 @@ package entity;
 
 import java.util.ArrayList;
 
-
 /**
- * The representation of a password-protected user for our program.
+ * The representation of a user in our program.
  */
-public class User {
+public interface User {
 
-    private final String name;
-    private final String password;
-    private ArrayList<Recipe> recipeCollection = new ArrayList<>();
-    public User(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
+    /**
+     * Returns the username of the user.
+     * @return the username of the user.
+     */
+    String getName();
 
-    public String getName() {
-        return name;
-    }
+    /**
+     * Returns the password of the user.
+     * @return the password of the user.
+     */
+    String getPassword();
 
-    public String getPassword() {
-        return password;
-    }
+    // Brandon's
+    void addRecipe(Recipe recipe);
 
-    public void addRecipe(Recipe recipe){
-        recipeCollection.add(recipe);
-    }
-    public ArrayList<Recipe> getRecipeCollection() {return recipeCollection;}
-    public String getRecipe(String recipeName){
-        for (int i = 0; i < recipeCollection.size(); i++){
-            if (recipeCollection.get(i).getName().equals(recipeName)){
-                return recipeCollection.get(i).getName();
-            }
-        }
-        return null;
-    }
+    // Brandon's
+    ArrayList<Recipe> getRecipeCollection();
+
+    // Emily's
+    String getRecipe(String recipeName);
+
 }

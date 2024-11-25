@@ -4,9 +4,7 @@ import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;
 import entity.User;
 import entity.UserFactory;
-import org.junit.Test;
-
-import java.time.LocalDateTime;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
