@@ -2,6 +2,7 @@ package data_access;
 
 import entity.Nutrition;
 import entity.Recipe;
+import use_case.ExportCalendar.ExportCalendarDataAccessInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.Map;
 /**
  * Creates an in memory Week Data Access Object for purposes of testing and development.
  */
-public class InMemoryCalendarDAO {
+public class InMemoryCalendarDAO implements ExportCalendarDataAccessInterface {
     private List<List<Object>> chosenWeek = new ArrayList<>();
     private List<Recipe> allRecipes = new ArrayList<>();
     // Dates format: YYYYMMDD, Mon Dec 2, 2024 - Sat Dec 8, 2024.
@@ -34,7 +35,7 @@ public class InMemoryCalendarDAO {
      * Populates allRecipes list with mock data.
      */
     private void mockRecipeHelper() {
-        for (int i=0; !(i==7); i++) {
+        for (int i = 0; !(i == 7); i++) {
             String name = "Sandwich";
             List<String> ingredients = new ArrayList<String>();
             ingredients.add("peanut butter");
@@ -55,10 +56,30 @@ public class InMemoryCalendarDAO {
 
     /**
      * Testing that code works
+     *
      * @param args - no args
      */
     public static void main(String[] args) {
         InMemoryCalendarDAO testWeekDAO = new InMemoryCalendarDAO();
         System.out.println(testWeekDAO.getChosenWeek());
+    }
+
+    @Override
+    public List<String> getCalendarEvents() {
+        List<String> events = new ArrayList<>();
+
+        for (List<Object> day : chosenWeek) {
+            int date = (int) day.get(0);
+            Recipe recipe = (Recipe) day.get(1);
+
+            // Create event string in .ics format
+            String event = String.format(
+                    "DTSTART:%dT000000Z\nDTEND:%dT010000Z\nSUMMARY:Try recipe: %s\nDESCRIPTION:%s\nLOCATION:Home",
+                    date, date, recipe.getName(), recipe.getInstructions()
+            );
+            events.add(event);
+        }
+
+        return events;
     }
 }
