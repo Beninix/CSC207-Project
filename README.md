@@ -12,13 +12,13 @@
 
 ## Contributors
 Emily Tchong <br>
-Github account: [emhatchong](https://github.com/emhatchong)
+Github account: [emhatchong](https://github.com/emhatchong) <br>
 Lillian Chan <br>
-Github account: [lill-chan](https://github.com/lill-chan)
+Github account: [lill-chan](https://github.com/lill-chan) <br>
 Sarah Ko <br>
-Github account: [lill-chan](https://github.com/IcedLemonLoaf)
+Github account: [IcedLemonLoaf](https://github.com/IcedLemonLoaf) <br>
 Brandon Bounsophinh <br>
-Github account: [lill-chan](https://github.com/beninix)
+Github account: [beninix](https://github.com/beninix) <br>
 
 ## Purpose
 This project is a Java-based meal prepping program created to make meal preparation easier. It combines several features into one tool, saving time by eliminating the need to search for recipes (especially with dietary restrictions) and the tedious task of planning meals for the week.
