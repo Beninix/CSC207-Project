@@ -13,29 +13,75 @@ import java.io.IOException;
 import java.util.*;
 
 public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInterface {
-    private static final int SUCCESS_CODE = 200;
-    private static final int CREDENTIAL_ERROR = 401;
-    private static final String CONTENT_TYPE_LABEL = "Content-Type";
-    private static final String CONTENT_TYPE_JSON = "application/json";
-    private static final String STATUS_CODE_LABEL = "status_code";
-    private static final String USERNAME = "username";
-    private static final String PASSWORD = "password";
-    private static final String MESSAGE = "message";
     private static final String BASEURL = "https://api.spoonacular.com/recipes/complexSearch?";
     private static final String TOKEN = "token";
-    private static final String NUMBER = "&number=15";
+    private static final String NUMBER = "&number=3";
     private static final String INSTRUCTIONSREQUIRED = "&instructionsRequired=true";
     private static final String ADDINFORMATION = "&addRecipeInformation=true";
     private static final String RESULT = "results";
     private static final String ADDINGREDIENTS = "&fillIngredients=true";
     private static final String ADDNUTRITION = "&addRecipeNutrition=true";
     @Override
-    public List<Recipe> loadRecipes(Map<String, Boolean> diets) throws DataAccessException {
+    public String filterDiets(Map<String, Boolean> diets){
+        if(diets!=null){
+            StringBuilder output = new StringBuilder();
+            output.append("&diet=");
+            for(Map.Entry<String,Boolean> diet : diets.entrySet()){
+                if(diet.getValue()){
+                    output.append("," + diet.getKey());
+                }
+            }
+            output.deleteCharAt(6);
+            return output.toString();
+        }
+        return "";
+    }
+    public String filterIngredients(List<String> ingredients){
+        if(ingredients!=null){
+            StringBuilder output = new StringBuilder();
+            output.append("&ingredients=");
+            for(String ingredient: ingredients){
+                output.append("," + ingredient);
+            }
+            output.deleteCharAt(6);
+            return output.toString();
+        }
+        return "";
+    }
+    public String filterCalories(int calories){
+        if(calories>0){
+            return "&maxCalories="+calories;
+        }
+        return "";
+    }
+    public String filterCookingTime(int cookingTime){
+        if(cookingTime>0){
+            return "&maxReadyTime="+cookingTime;
+        }
+        return "";
+    }
+    public List<Recipe> loadRecipes(Map<String, Boolean> diets,List<String> ingredients,int calories,int cookingTime) throws DataAccessException {
+        return callSpoonacular(filterDiets(diets)
+                +filterIngredients(ingredients)
+                +filterCalories(calories)
+                +filterCookingTime(cookingTime));
+    }
+    public List<Recipe> loadRecipes(String filters) throws DataAccessException {
+        return callSpoonacular(filters);
+    }
+    public List<Recipe> callSpoonacular(String filters) throws DataAccessException {
         // Make an API call to get the user object.
         final String token = "apiKey=" + System.getenv(TOKEN);
         final OkHttpClient client = new OkHttpClient().newBuilder().build();
         final Request request = new Request.Builder()
-                .url(BASEURL + token + NUMBER + INSTRUCTIONSREQUIRED + ADDINFORMATION + ADDINGREDIENTS + ADDNUTRITION)
+                .url(BASEURL
+                        + token
+                        + NUMBER
+                        + INSTRUCTIONSREQUIRED
+                        + ADDINFORMATION
+                        + ADDINGREDIENTS
+                        + ADDNUTRITION
+                        + filters)
                 .build();
         try {
             final Response response = client.newCall(request).execute();
@@ -62,13 +108,13 @@ public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInter
             ingredients.add(ingredientsJSON.getJSONObject(i).getString("name"));
         }
         StringBuilder stringBuilder = new StringBuilder();
-        int cookingTime = recipeJSON.getInt("readyInMinutes");
         JSONArray instructionsJSON = recipeJSON.getJSONArray("analyzedInstructions").getJSONObject(0).getJSONArray("steps");
         for (int i = 0; i < instructionsJSON.length(); i++) {
             stringBuilder.append(instructionsJSON.getJSONObject(i).getString("step"));
         }
-        String[] dietNames= {"vegetarian","vegan","glutenFree","dairyFree","cheap","sustainable"};
         String instructions = stringBuilder.toString();
+        int cookingTime = recipeJSON.getInt("readyInMinutes");
+        String[] dietNames= {"vegetarian","vegan","glutenFree","dairyFree","cheap","sustainable"};
         Map<String, Boolean> diets = new HashMap<String, Boolean>();
         for(String d : dietNames){
             diets.put(d, recipeJSON.getBoolean(d));
@@ -92,11 +138,5 @@ public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInter
                 ,nutrients.get("protein")
                 ,nutrients.get("fiber"));
         return new Recipe(name,ingredients, instructions,cookingTime,diets,nutrition);
-    }
-
-    @Override
-    public List<Recipe> loadRecipes(int time){
-        final String token = System.getenv(TOKEN);
-        return null;
     }
 }
