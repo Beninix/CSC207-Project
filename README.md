@@ -1,14 +1,14 @@
 # CSC207-Project: BiteWise
 
 ## Table of Contents
-1.[Contributors](#Contributors)
-2.[Purpose](#Purpose)
-3.[Features](#Features)
-4.[Installation Instructions](#Installtion)
-5.[Usage Guide](#Usage)
-6.[License](#License)
-7.[Feedback](#Feedback)
-8.[Contributions](#Contributions)
+1.[Contributors](#Contributors) \\
+2.[Purpose](#Purpose) \\
+3.[Features](#Features) \\
+4.[Installation Instructions](#Installation) \\
+5.[Usage Guide](#Usage) \\
+6.[License](#License) \\
+7.[Feedback](#Feedback) \\
+8.[Contributions](#Contributions) \\
 
 ## Contributors
 Emily Tchong emhatchong  
