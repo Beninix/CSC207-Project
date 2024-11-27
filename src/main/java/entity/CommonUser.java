@@ -10,6 +10,7 @@ public class CommonUser implements User {
     private final String name;
     private final String password;
     private ArrayList<Recipe> recipeCollection = new ArrayList<>();
+    private Calendar calendar = new Calendar();
 
     public CommonUser(String name, String password) {
         this.name = name;
