@@ -1,10 +1,57 @@
-# CSC207-Project
+# CSC207-Project: BiteWise
 
-## Team Members 
+## Table of Contents
+1.[Contributors](#Contributors)
+2.[Purpose](#Purpose)
+3.[Features](#Features)
+4.[Installation Instructions](#Installtion)
+5.[Usage Guide](#Usage)
+6.[License](#License)
+7.[Feedback](#Feedback)
+8.[Contributions](#Contributions)
+
+## Contributors
 Emily Tchong emhatchong  
-Lillian Chan  lill-chan  
+Lillian Chan lill-chan  
 Sarah Ko IcedLemonLoaf  
 Brandon Bounsophinh beninix  
+
+## Purpose
+This project is a Java-based meal prepping program created to make meal preparation easier. It combines several features into one tool, saving time by eliminating the need to search for recipes (especially with dietary restrictions) and the tedious task of planning meals for the week.
+
+## Features
+- Add recipes from an API to calendar.
+- Navigate weekly calendar to view meal plan for desired week.
+- Saves recipe to a virtual recipe collection.
+- Export calendar
+- View full instructions and nutriional information of selected recipe.
+- Filter for recipes through categories: dietary restrictions, ingredients, calories, and maximum cooking duration.
+
+## Installation
+
+## Usage
+
+## License
+As of November 2024, the project and its materials are the property of the University of Toronto. The project may only be used for personal, non-commercial purposes.
+
+## Feedback
+Feedback is encouraged and welcomed. Please only submit *valid* feedback through pull requests.
+
+### Valid Feedback Criteria
+*Feedback is evaluated to be valid if and only if it meets all requirements below*
+- All feedback *must* be in the form of a pull request.
+- Clearly state your issue or suggestion. Provide as much detail as possible. If you are describing an issue, you are welcome to provide a possible solution.
+- Feedback must be relevant to the purpose and/or features of the project. Non-relevant suggestions, as determined by a contributor, will be rejected.
+- Feedback must be respectful. Offensive and disrespectful feedback will result in viewing privileges of the project revoked and reporting of your Github account.
+
+### Feedback Expectations
+Please allow 3-4 weeks for a contributor to either accept or deny your pull request. We appreciate your feedback for the project's improvement!
+
+## Contributions
+
+
+
+
 
 ## User Stories
 ### Lillian C. User Stories
