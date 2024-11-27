@@ -6,7 +6,7 @@ import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import use_case.note.DataAccessException;
+import use_case.spoonacular.DataAccessException;
 import use_case.spoonacular.SpoonacularDataAccessInterface;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package use_case.spoonacular;
 
 import entity.Recipe;
-import use_case.note.DataAccessException;
+import use_case.spoonacular.DataAccessException;
 
 import java.util.List;
 import java.util.Map;
