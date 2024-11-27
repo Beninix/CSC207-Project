@@ -1,8 +1,10 @@
 package data_access;
 
+import entity.Nutrition;
 import entity.Recipe;
 import entity.User;
 import okhttp3.*;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import use_case.note.DataAccessException;
@@ -11,6 +13,7 @@ import use_case.spoonacular.SpoonacularDataAccessInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +46,7 @@ public class FileSpoonacularDataAccessObject implements SpoonacularDataAccessInt
     private static final String NUMBER = "number=100";
     private static final String INSTRUCTIONSREQUIRED = "&instructionsRequired=true";
     private static final String ADDINFORMATION = "&addRecipeInformation=true";
+    private static final String RESULT = "result";
     @Override
     public List<Recipe> loadRecipes(Map<String, Boolean> diets) throws DataAccessException {
         // Make an API call to get the user object.
@@ -58,9 +62,12 @@ public class FileSpoonacularDataAccessObject implements SpoonacularDataAccessInt
             final JSONObject responseBody = new JSONObject(response.body().string());
 
             if (responseBody.getInt(STATUS_CODE_LABEL) == SUCCESS_CODE) {
-                final JSONObject userJSONObject = responseBody.getJSONObject("result");
-                final JSONObject data = userJSONObject.getJSONObject("info");
-                return new ArrayList<Recipe>();
+                final JSONArray searchJSONArray = new JSONArray(responseBody.getString(RESULT));
+                List<Recipe> recipes = new ArrayList<>();
+                for (int i = 0; i < searchJSONArray.length(); i++) {
+                    searchJSONArray.getJSONObject(i);
+                }
+                return recipes;
             }
             else {
                 throw new DataAccessException(responseBody.getString(MESSAGE));
@@ -70,6 +77,16 @@ public class FileSpoonacularDataAccessObject implements SpoonacularDataAccessInt
             throw new RuntimeException(ex);
         }
     }
+    public Recipe jsonToRecipe(JSONObject recipeJSON) {
+        String name = "";
+        List<String> ingredients = new ArrayList<String>();
+        String instructions = "";
+        int cookingTime = 0;
+        Map<String, Boolean> diets = new HashMap<String, Boolean>();
+        Nutrition nutrition = null;
+        return new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
+    }
+    
     @Override
     public List<Recipe> loadRecipes(int time){
         final String token = System.getenv(TOKEN);
