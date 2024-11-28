@@ -33,8 +33,17 @@ This project is a Java-based meal prepping program created to make meal preparat
 
 ## Installation
 The program requires Java in order to run. Any version 17 JDK and 11+ will work. The program can run on any hardware system (ex. Windows and Mac can be used).
+### Installation steps
+1. Download [Java 17.](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+2. Download [Intellij-IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac)
+   If you are a student, you can use Intellij Ultimate for free by signing up for [JetBrains Products for Learning.](https://www.jetbrains.com/shop/eform/students) <br>
+   You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge.
 
 ## Usage
+1. [Fork](###1.Fork-the-project) the repository and add to your local machine.
+2. Go to **java -> src -> main -> app -> MainApplication.java**
+3. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
+4. Enter your username and password to get started on meal prepping!
 
 ## License
 As of November 2024, the project and its materials are the property of the University of Toronto. The project may only be used for personal, non-commercial purposes.
@@ -62,11 +71,26 @@ Steps: <br>
 1. Navigate to the project repository on GitHub.
 2. Click the **Fork** button in the upper-right corner to create a copy of the repository under your account.
 3. Clone the fork to your local machine <br>
+'''git clone https://github.com/Beninix/CSC207-Project.git
+cd CSC207-Project'''
    If you are using Intellij
    1. Click on **New Project**. Paste the fork repo URL in the url box as displayed below.
+Now you're all ready for step 2: creating a merge request!
+
+### 2. Creating a merge request
+1. Create a branch name using Git in your local machine and checkout on that branch.
+''' git branch <branch-name>
+git checkout <branch-name> '''
+2. Commit your changes with clear and descriptive messages.
+' git commit -m "Added new feature that allows the user to add their friends on the program." '
+3. Ensure tests have 100% coverage and proper documentation is used.
+   *If you are using Intellij, we reccomend you to download the plugin CheckStyle-IDEA to help.*
+4. Provide proper, clear, and accurate descriptions of your contributions in the merge request.
+
+### Merging protocols
+1. All merge requests will be peer reviewed by a contributor for accuracy, correctness, and performance. Feedback may be sent for further revisions and/or comments.
+2. Once approved, your request will be merged into the main branch.
       
-
-
 
 
 
