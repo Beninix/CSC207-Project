@@ -40,7 +40,7 @@ The program requires Java in order to run. Any version 17 JDK and 11+ will work.
    You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge.
 
 ## Usage
-1. [Fork](###1.Fork-the-project) the repository and add to your local machine.
+1. [Fork](#1.Fork-the-project) the repository and add to your local machine.
 2. Go to **java -> src -> main -> app -> MainApplication.java**
 3. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
 4. Enter your username and password to get started on meal prepping!
