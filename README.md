@@ -32,6 +32,7 @@ This project is a Java-based meal prepping program created to make meal preparat
 - Filter for recipes through categories: dietary restrictions, ingredients, calories, and maximum cooking duration.
 
 ## Installation
+The program requires Java in order to run. Any version 17 JDK and 11+ will work. The program can run on any hardware system (ex. Windows and Mac can be used).
 
 ## Usage
 
@@ -52,6 +53,20 @@ Feedback is encouraged and welcomed. Please only submit *valid* feedback through
 Please allow 3-4 weeks for a contributor to either accept or deny your pull request. We appreciate your feedback for the project's improvement!
 
 ## Contributions
+Thank you for your interest in contributing to the project! To ensure smooth collaboration, please follow the steps below to create a merge request as your contribution to the project.
+
+### 1. Fork the project
+Forking will be the essential first step for you to able to apply your contribution on your local repository first. <br> 
+
+Steps: <br>
+1. Navigate to the project repository on GitHub.
+2. Click the **Fork** button in the upper-right corner to create a copy of the repository under your account.
+3. Clone the fork to your local machine <br>
+   If you are using Intellij
+   1. Click on **New Project**. Paste the fork repo URL in the url box as displayed below.
+      
+
+
 
 
 
