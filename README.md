@@ -71,19 +71,25 @@ Steps: <br>
 1. Navigate to the project repository on GitHub.
 2. Click the **Fork** button in the upper-right corner to create a copy of the repository under your account.
 3. Clone the fork to your local machine <br>
-```git clone https://github.com/Beninix/CSC207-Project.git cd CSC207-Project ```
+
+```git clone https://github.com/Beninix/CSC207-Project.git ```
+```cd CSC207-Project ```
+
    If you are using Intellij
    1. Click on **New Project**. Paste the fork repo URL in the url box as displayed below.
 Now you're all ready for step 2: creating a merge request!
 
 ### 2. Creating a merge request
 1. Create a branch name using Git in your local machine and checkout on that branch.
-``` git branch <branch-name> git checkout <branch-name> ```
-2. Commit your changes with clear and descriptive messages.
+
+``` git branch <branch-name> ```
+``` git checkout <branch-name> ```
+
+3. Commit your changes with clear and descriptive messages.
 ' git commit -m "Added new feature that allows the user to add their friends on the program." '
-3. Ensure tests have 100% coverage and proper documentation is used.
+4. Ensure tests have 100% coverage and proper documentation is used.
    *If you are using Intellij, we reccomend you to download the plugin CheckStyle-IDEA to help.*
-4. Provide proper, clear, and accurate descriptions of your contributions in the merge request.
+5. Provide proper, clear, and accurate descriptions of your contributions in the merge request.
 
 ### Merging protocols
 1. All merge requests will be peer reviewed by a contributor for accuracy, correctness, and performance. Feedback may be sent for further revisions and/or comments.
