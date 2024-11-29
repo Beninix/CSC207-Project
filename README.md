@@ -24,8 +24,6 @@ Github account: [beninix](https://github.com/beninix) <br>
 This project is a Java-based meal prepping program created to make meal preparation easier. It combines several features into one tool, saving time by eliminating the need to search for recipes (especially with dietary restrictions) and the tedious task of planning meals for the week.
 
 ## Features
-- Add recipes from an API to calendar.
-- Navigate weekly calendar to view meal plan for desired week.
 - Saves recipe to a virtual recipe collection.
 - Export calendar
 - View full instructions and nutriional information of selected recipe.
@@ -35,7 +33,7 @@ This project is a Java-based meal prepping program created to make meal preparat
 The program requires Java in order to run. Any version 17 JDK and 11+ will work. The program can run on any hardware system (ex. Windows and Mac can be used).
 ### Installation steps
 1. Download [Java 17.](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-2. Download [Intellij-IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac)
+2. Download [Intellij-IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac) <br>
    If you are a student, you can use Intellij Ultimate for free by signing up for [JetBrains Products for Learning.](https://www.jetbrains.com/shop/eform/students) <br>
    You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge.
 
@@ -85,10 +83,10 @@ Now you're all ready for step 2: creating a merge request!
 `git branch <branch-name> ` <br>
 `git checkout <branch-name> `
 
-3. Commit your changes with clear and descriptive messages.
-' git commit -m "Added new feature that allows the user to add their friends on the program." '
+3. Commit your changes with clear and descriptive messages. An example is provided below.
+` git commit -m "Added new feature that allows the user to add their friends on the program." `
 4. Ensure tests have 100% coverage and proper documentation is used.
-   *If you are using Intellij, we reccomend you to download the plugin CheckStyle-IDEA to help.*
+   *If you are using Intellij, we reccomend you to download the plugin CheckStyle-IDEA to find all documentation errors.*
 5. Provide proper, clear, and accurate descriptions of your contributions in the merge request.
 
 ### Merging protocols
