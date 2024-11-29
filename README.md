@@ -83,7 +83,7 @@ Now you're all ready for step 2: creating a merge request!
 `git branch <branch-name> ` <br>
 `git checkout <branch-name> `
 
-3. Commit your changes with clear and descriptive messages. An example is provided below.
+3. Commit your changes with clear and descriptive messages. An example is provided below. <br>
 ` git commit -m "Added new feature that allows the user to add their friends on the program." `
 4. Ensure tests have 100% coverage and proper documentation is used.
    *If you are using Intellij, we reccomend you to download the plugin CheckStyle-IDEA to find all documentation errors.*
