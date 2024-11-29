@@ -13,11 +13,10 @@ public class RecipeInteractor implements RecipeInputBoundary {
 
    @Override
    public void execute(RecipeInput recipeInput) {
-      final String recipeName = recipeDataAccessObject.get();
       final Recipe chosenRecipe = recipeInput.getRecipe();
       if (!recipeDataAccessObject.existsByName(chosenRecipe.getName())) {
          recipeDataAccessObject.save(chosenRecipe);
-         final RecipeOutputData recipeOutput = new RecipeOutputData(recipeName, false);
+         final RecipeOutputData recipeOutput = new RecipeOutputData(chosenRecipe, false);
          recipeOutputBoundary.prepareSuccessView(recipeOutput);
       }
       else {
