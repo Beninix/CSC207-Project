@@ -18,15 +18,16 @@ public class Calendar {
 //
 //        dateToRecipe.put(yyyymmdd, recipeAdd);
 //        return true;
+        return false;
     }
 
     /**
      * Method for providing data for 1 chosen week of recipes
      * in a list of lists. (For export function)
      */
-    public List<List<Object>> getWeekForExport (Integer yyyymmdd) {
+    // public List<List<Object>> getWeekForExport (Integer yyyymmdd) {
 
-        for (int i; !(i==6); i++) {
+       // for (int i; !(i==6); i++) {
             // int counter = yyyymmdd + i;
             // dateToRecipe.get(yyyymmdd);
             // check if is leap year (use mod) and check if has 30 or 31 days.
@@ -37,11 +38,11 @@ public class Calendar {
             //      If year is a leap year Print 29 Days, Else Print 28 Days.
             //  Now, check if month is 1, 3, 5, 7, 8, 10, 12, then print 31 days.
             //  Check if month is 4, 6, 9, 11 then print 30 days.
-        }
+        // }
 
-        List<List<Object>> result = new ArrayList<>();
-        return result;
+        // List<List<Object>> result = new ArrayList<>();
+        // return result;
 
-    }
+    // }
 
 }
