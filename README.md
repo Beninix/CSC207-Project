@@ -1,4 +1,4 @@
-# CSC207-Project: BiteWise
+# CSC207 Project - Collaborative meal planning and scheduling app
 
 ## Table of Contents
 1. [Contributors](#Contributors) <br>
