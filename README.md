@@ -92,16 +92,10 @@ Now you're all ready for step 2: creating a merge request!
 ### Merging protocols
 1. All merge requests will be peer reviewed by a contributor for accuracy, correctness, and performance. Feedback may be sent for further revisions and/or comments.
 2. Once approved, your request will be merged into the main branch.
-      
-
-
-
-
 
 ## User Stories
-### Lillian C. User Stories
-* Sandra wants to add recipes to her Bite Wise calendar so that she can plan her meals.
-* Sandra wants to navigate through her calendar to view her meal plan for a specific week.
+### Lillian C. User Story
+* Sandra wants to select one recipe from the search results or recipe collection so that she can view the full instructions and nutritional information.
 ### Emily T. User Stories
 * Sandra wants to save a recipe that she likes so that she can access it from her virtual recipe collection.
 * Sandra wants to login so that she can use Bite Wise and access her recipe collection and calendar.
@@ -115,10 +109,10 @@ Now you're all ready for step 2: creating a merge request!
 * Sandra wants to view the list of recipes in her virtual recipe collection.  
 * Sandra wants to filter the list of recipes so that she can find [filtering categories from spoonacular – suggestions: ingredients, diets, calories, cooking time (max) recipes. (diets to add; cheap, sustainable)  
 ### Team User Story
-* Sandra wants to select one recipe from the search results or recipe collection or calendar, so that she can view the full instructions and nutritional information.
+* Sandra wants to navigate through the application's functions so that she can access any function.
 
 ## Use Cases DRAFT
-### Search, filter, view recipes (Brandon)
+### Search, filter, view list of recipes (Brandon)
 (precondition: user is logged in)
 1. User selects "Search" navigation button.
 2. Search View is made viewable to user.
@@ -127,31 +121,22 @@ Now you're all ready for step 2: creating a merge request!
 5. User hits enter.
 6. System returns un/filtered list of results.
 
-### View recipe (Team)
-(precondition: Search View, or Recipe collection View, or Calendar View is viewable to logged in user)
+### View recipe (Lillian)
+(precondition: Search View or Recipe collection View is viewable to logged in user)
 1. User selects recipe entry.
 2. Recipe View is made viewable to user.
-3. User closes recipe window.
+3. User closes recipe window to return to previous view.
 
 ### Add recipe to recipe collection (Emily)
 (precondition: Recipe View is viewable to logged in  user)
 1. User selects "Add to recipe collection" button
 2. Systems returns confirmation message (pop-up)
 3. User closes pop-up.
-  
-### Add recipe to calendar (Lillian)
-(precondition: Recipe View is viewable to logged in user)
-1. User selects "Add to calendar" button.
-2. Date/Time selector pop-up is made viewable to the user.
-3. User selects a time slot.
-4. System returns confirmation message.
-5. User closes Date/Time selector pop-up.
 
-### View and navigate through calendar (Lillian)
+### View and navigate through application (Lillian)
 (precondition: user is logged in)
-1. User selects "Calendar" navigation button.
-2. Calendar View is made viewable to the user.
-3. User navigates to desired week in Calendar. (Default view is current week)
+1. User navigates to desired function through top menu and submenus.
+(Default view is search screen; functions available: Search, Recipe Collection, Settings: Change Password, Logout)
 
 ### Export calendar format file (Sarah)
 (precondition: Calendar View is viewable to logged in user)
@@ -180,8 +165,7 @@ Now you're all ready for step 2: creating a merge request!
 1. User selects "Create account" button.
 2. User submits username and password.
 4. System returns confirmation message.
-5. Search View is made viewable to user.
+5. Login View is made viewable to user.
 
 ## Additional implementations and notes (Team)
-* View Manager Model
-* functionality of removing recipes from recipes collection or calendar is not implemented.
+* functionality of removing recipes from recipes collection is not yet implemented.
