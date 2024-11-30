@@ -1,9 +1,6 @@
 package entity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RecipeSearch {
     public static List<Recipe> dietSearch(List<Recipe> recipeList, Map<String, Boolean> diets) {
@@ -22,6 +19,17 @@ public class RecipeSearch {
         }
         return output;
     }
+
+    public static List<Recipe> ingredientsSearch(List<Recipe> recipeList, List<String> ingredients) {
+        List<Recipe> output = new ArrayList<>();
+        for (Recipe r : recipeList) {
+            if(new HashSet<>(r.getIngredients()).containsAll(ingredients)) {
+                output.add(r);
+            }
+        }
+        return output;
+    }
+
     public static List<Recipe> caloriesSearch(List<Recipe> recipeList, int maxCalories){
         List<Recipe> output = new ArrayList<Recipe>();
         for (Recipe r : recipeList){
