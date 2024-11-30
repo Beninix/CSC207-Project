@@ -1,4 +1,4 @@
-# CSC207-Project
+# CSC207 Project - Collaborative meal planning and scheduling app
 
 ## Team Members 
 Emily Tchong emhatchong  
