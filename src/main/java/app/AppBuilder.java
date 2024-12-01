@@ -2,9 +2,7 @@ package app;
 
 import java.awt.CardLayout;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;
@@ -19,6 +17,7 @@ import interface_adapter.login.LoginPresenter;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.logout.LogoutController;
 import interface_adapter.logout.LogoutPresenter;
+import interface_adapter.navigation.NavViewModel;
 import interface_adapter.recipe.RecipeViewModel;
 import interface_adapter.recipe_collection.RecipeCollectionViewModel;
 import interface_adapter.search.SearchViewModel;
@@ -61,6 +60,8 @@ public class AppBuilder {
     // thought question: is the hard dependency below a problem?
     private final InMemoryUserDataAccessObject userDataAccessObject = new InMemoryUserDataAccessObject();
 
+    private NavigationMenu navigationMenu;
+    private NavViewModel navViewModel;
     private SignupView signupView;
     private SignupViewModel signupViewModel;
     private LoginViewModel loginViewModel;
@@ -80,6 +81,16 @@ public class AppBuilder {
 
     public AppBuilder() {
         cardPanel.setLayout(cardLayout);
+    }
+
+    /**
+     * Adds the Navigation Menu to the application.
+     * @return this builder
+     */
+    public JMenuBar addNavigationMenu() {
+        navViewModel = new NavViewModel();
+        navigationMenu = new NavigationMenu(navViewModel);
+        return navigationMenu;
     }
 
     /**
@@ -234,14 +245,19 @@ public class AppBuilder {
         return this;
     }
 
+    public void setMenuVisible(Boolean bool) {
+        navigationMenu.setVisible(bool);
+    }
+
     /**
      * Creates the JFrame for the application and initially sets the SignupView to be displayed.
      * @return the application
      */
     public JFrame build() {
-        final JFrame application = new JFrame("Login Example");
+        final JFrame application = new JFrame("BiteWise");
+        application.setSize(ViewConstants.PANELWIDTH, ViewConstants.PANELHEIGHT);
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        application.setJMenuBar(addNavigationMenu());
         application.add(cardPanel);
 
         viewManagerModel.setState(signupView.getViewName());
