@@ -142,8 +142,8 @@ Now you're all ready for step 2: creating a merge request!
 (precondition: Calendar View is viewable to logged in user)
 1. User clicks on "Download Calendar Export"
 2. One week of calendar with the meal plan will be exported to ics format.
-* Please note that the "Download Calendar Export" button is not available in our software because the Calendar feature has not been implemented as originally planned.
-* Export calendar format file still works on our InMemoryCalendarDAO with the mock calendar with the mock recipes.
+- Please note that the "Download Calendar Export" button is not available in our software because the Calendar feature has not been implemented as originally planned.
+- Export calendar format file still works on our InMemoryCalendarDAO with the mock calendar with the mock recipes.
 
 
 ### Logout (Emily)
