@@ -24,6 +24,7 @@ public class MainApplication {
                                             .addSignupUseCase()
                                             .addLoginUseCase()
                                             .addChangePasswordUseCase()
+                                            .addLogoutUseCase()
                                             // add your use case here
                                             .build();
 
