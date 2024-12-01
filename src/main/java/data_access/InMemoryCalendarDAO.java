@@ -18,7 +18,6 @@ import java.util.Map;
 public class InMemoryCalendarDAO implements ExportCalendarDataAccessInterface {
     private List<List<Object>> chosenWeek = new ArrayList<>();
     private List<Recipe> allRecipes = new ArrayList<>();
-    // Dates format: YYYYMMDD, Mon Dec 2, 2024 - Sat Dec 8, 2024.
     private List<Integer> allDays = new ArrayList<>(List.of(20241202, 20241203, 20241204, 20241205, 20241206, 20241207, 20241208));
 
     /**

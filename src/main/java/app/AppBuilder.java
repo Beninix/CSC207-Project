@@ -38,6 +38,7 @@ import use_case.signup.SignupInputBoundary;
 import use_case.signup.SignupInteractor;
 import use_case.signup.SignupOutputBoundary;
 import view.*;
+import interface_adapter.ExportCalendar.ExportCalendarController;
 
 /**
  * The AppBuilder class is responsible for putting together the pieces of
@@ -77,6 +78,7 @@ public class AppBuilder {
     private SearchViewModel searchViewModel;
     private LoggedInView changePasswordView;
     private LoggedInViewModel changePasswordViewModel;
+    private ExportCalendarController exportCalendarController;
 
     public AppBuilder() {
         cardPanel.setLayout(cardLayout);
@@ -110,7 +112,9 @@ public class AppBuilder {
      */
     public AppBuilder addLoggedInView() {
         loggedInViewModel = new LoggedInViewModel();
-        loggedInView = new LoggedInView(loggedInViewModel);
+        loggedInView = new LoggedInView(loggedInViewModel, exportCalendarController);
+        loggedInView.setExportCalendarController(exportCalendarController); // Ensure the controller is set
+
         cardPanel.add(loggedInView, loggedInView.getViewName());
         return this;
     }
@@ -165,7 +169,7 @@ public class AppBuilder {
      */
     public AppBuilder addChangePasswordView() {
         changePasswordViewModel = new LoggedInViewModel();
-        changePasswordView = new LoggedInView(changePasswordViewModel);
+        changePasswordView = new LoggedInView(changePasswordViewModel,exportCalendarController );
         cardPanel.add(changePasswordView, changePasswordView.getViewName());
         return this;
     }
