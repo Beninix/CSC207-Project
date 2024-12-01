@@ -33,7 +33,7 @@ public class InMemoryRecipeDAO implements RecipeDataAccessInterface {
     }
 
     @Override
-    public String get() {
-        return recipe.getName();
+    public Recipe findByName(String recipeName) {
+        return null;
     }
 }

@@ -16,6 +16,6 @@ public interface RecipeDataAccessInterface {
      */
     void save(Recipe recipe);
 
-    String get();
+    public Recipe findByName(String recipeName);
 
 }

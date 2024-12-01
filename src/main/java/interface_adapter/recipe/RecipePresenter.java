@@ -20,7 +20,7 @@ public class RecipePresenter implements RecipeOutputBoundary {
     @Override
     public void prepareSuccessView(RecipeOutputData recipeOutput) {
         final RecipeState recipeState = recipeViewModel.getState();
-        recipeState.setRecipe(recipeOutput.getRecipe());
+        recipeState.setRecipe(recipeOutput.getRecipeName());
         this.recipeViewModel.setState(recipeState);
         this.recipeViewModel.firePropertyChanged();
 

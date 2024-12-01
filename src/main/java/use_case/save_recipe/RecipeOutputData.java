@@ -11,12 +11,7 @@ public class RecipeOutputData {
         this.useCaseFailed = useCaseFailed;
     }
 
-    public String getRecipeName() {
-        return recipe.getName();
+    public Recipe getRecipeName() {
+        return this.recipe;
     }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
 }
