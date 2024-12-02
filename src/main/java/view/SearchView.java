@@ -1,22 +1,21 @@
 package view;
+import data_access.DBSpoonacularDataAccessObject;
 
-import java.awt.CardLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.*;
+import java.util.List;
 
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
+import entity.Recipe;
 import interface_adapter.search.SearchState;
 import interface_adapter.search.SearchViewModel;
+import org.intellij.lang.annotations.Flow;
+import use_case.spoonacular.DataAccessException;
 
 /**
  * SearchView for when the user is logged into the program.
@@ -24,24 +23,36 @@ import interface_adapter.search.SearchViewModel;
 public class SearchView extends JPanel implements ActionListener, PropertyChangeListener {
     private final String viewName = "search";
     private final SearchViewModel searchViewModel;
+    final String[] dietNames = {"vegan", "vegetarian", "glutenFree", "dairyFree", "sustainable", "cheap"};
+    final JCheckBox[] dietsCheckbox = new JCheckBox[dietNames.length];
+    final JTextField ingredientsInputField = new JTextField(15);
+    final JTextField cookingTimeInputField = new JTextField(15);
+    final JTextField caloriesInputField = new JTextField(15);
+    final String[][] dummy = {dietNames};
+    final JPanel searchPanel;
+    final JPanel resultsPanel;
+    final String[] columnNames = {"Name", "Ingredients", "Instructions", "CookingTime", "Diets", "Calories", "Protein", "Sugar", "Fiber", "Sodium", "Cholesterol", "Fat"};
 
     @SuppressWarnings({"checkstyle:UnusedLocalVariable", "checkstyle:SuppressWarnings", "checkstyle:ExecutableStatementCount"})
     public SearchView(SearchViewModel searchViewModel) {
         this.searchViewModel = searchViewModel;
-
+        final JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        this.add(mainPanel);
         // Labels and panels
-        final JPanel searchPanel;
+
         final JButton searchButton = new JButton("Search");
+        searchButton.addActionListener(this);
 
         final JPanel ingredientsPanel = new JPanel();
         final JPanel dietsPanel = new JPanel();
         final JPanel cookingTimePanel = new JPanel();
         final JPanel caloriesPanel = new JPanel();
 
-        final JLabel ingredientsLabel = new JLabel("Ingredients (, separated)");
-        final JLabel dietsLabel = new JLabel("Diets");
-        final JLabel cookingTimeLabel = new JLabel("Cooking Time");
-        final JLabel caloriesLabel = new JLabel("Calories");
+        final JLabel ingredientsLabel = new JLabel("Ingredients (, separated):");
+        final JLabel dietsLabel = new JLabel("Diets:");
+        final JLabel cookingTimeLabel = new JLabel("Cooking Time:");
+        final JLabel caloriesLabel = new JLabel("Calories:");
 
         ingredientsPanel.add(ingredientsLabel);
         dietsPanel.add(dietsLabel);
@@ -51,39 +62,33 @@ public class SearchView extends JPanel implements ActionListener, PropertyChange
         searchPanel = new JPanel();
         searchPanel.setLayout(new BoxLayout(searchPanel, BoxLayout.Y_AXIS));
         searchPanel.add(new JLabel("Search"));
-        this.add(searchPanel);
+        mainPanel.add(searchPanel);
         searchPanel.add(ingredientsPanel);
         searchPanel.add(dietsPanel);
         searchPanel.add(cookingTimePanel);
         searchPanel.add(caloriesPanel);
+        searchPanel.add(searchButton);
 
         // Ingredients input
-        final JTextField ingredientsInputField = new JTextField(15);
+
         ingredientsPanel.add(ingredientsInputField);
 
         // Diets input
-        final JRadioButton veganRadioButton = new JRadioButton("Vegan");
-        final JRadioButton vegetarianRadioButton = new JRadioButton("Vegetarian");
-        final JRadioButton glutenFreeRadioButton = new JRadioButton("Gluten Free");
-        final JRadioButton dairyFreeRadioButton = new JRadioButton("Dairy Free");
-        final JRadioButton sustainableRadioButton = new JRadioButton("Sustainable");
-        final JRadioButton cheapRadioButton = new JRadioButton("Cheap");
-        dietsPanel.add(veganRadioButton);
-        dietsPanel.add(vegetarianRadioButton);
-        dietsPanel.add(glutenFreeRadioButton);
-        dietsPanel.add(dairyFreeRadioButton);
-        dietsPanel.add(sustainableRadioButton);
-        dietsPanel.add(cheapRadioButton);
+        for (int i = 0; i < dietNames.length; i++) {
+            dietsCheckbox[i] = new JCheckBox(dietNames[i]);
+            dietsPanel.add(dietsCheckbox[i]);
+        }
 
         // Cooking time input
-        final JTextField cookingTimeInputField = new JTextField(15);
+
         cookingTimePanel.add(cookingTimeInputField);
 
         // Calories input
-        final JTextField caloriesInputField = new JTextField(15);
+
         caloriesPanel.add(caloriesInputField);
 
-        final JPanel results = new JPanel();
+        resultsPanel = new JPanel();
+        mainPanel.add(resultsPanel);
     }
 
     public String getViewName() {
@@ -97,7 +102,57 @@ public class SearchView extends JPanel implements ActionListener, PropertyChange
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        DBSpoonacularDataAccessObject spoonacularDB = new DBSpoonacularDataAccessObject();
+        Map<String, Boolean> diets = selectedDiets(this.dietsCheckbox);
+        List<String> ingredients = Arrays.asList(this.ingredientsInputField.getText().split(","));
+        String caloriesInput = this.caloriesInputField.getText();
+        int calories = 0;
+        int cookingTime = 0;
+        String cookingTimeInput = this.cookingTimeInputField.getText();
+        if (!caloriesInput.isEmpty()) {
+            calories = Integer.parseInt(caloriesInput);
+        }
+        if (!cookingTimeInput.isEmpty()) {
+            cookingTime = Integer.parseInt(cookingTimeInput);
+        }
+        try {
+            List<Recipe> recipeList = spoonacularDB.callSpoonacular(
+                    spoonacularDB.filterDiets(diets) +
+                    spoonacularDB.filterIngredients(ingredients)+
+                    spoonacularDB.filterCalories(calories)+
+                    spoonacularDB.filterCookingTime(cookingTime));
+            for (Recipe r : recipeList){
+                r.printRecipe();
+            }
+            ArrayList<Recipe> temp = new ArrayList<>(recipeList);
+            ArrayList<String[]> tempString = new ArrayList<>();
+            tempString.add(columnNames);
+            for (Recipe r : temp) {
+                tempString.add(r.toRow());
+            }
+            String[][] recipes = new String[tempString.size()][tempString.get(0).length];
+            for (int i = 0; i < tempString.size(); i++) {
+                recipes[i] = tempString.get(i);
+            }
+            JTable recipeResults = new JTable(recipes,columnNames);
+            resultsPanel.add(recipeResults);
+        } catch (DataAccessException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
+    @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:SuppressWarnings"})
+    public Map<String, Boolean> selectedDiets(JCheckBox[] dietsCheckbox) {
+        Map<String, Boolean> output = new HashMap<>();
+        for (JCheckBox diet : dietsCheckbox) {
+            if (diet.isSelected()) {
+                output.put(diet.getText(), true);
+            }
+            else {
+                output.put(diet.getText(), false);
+            }
+        }
+        return output;
     }
 
     /**
@@ -106,9 +161,9 @@ public class SearchView extends JPanel implements ActionListener, PropertyChange
      */
     @SuppressWarnings({"checkstyle:UncommentedMain", "checkstyle:SuppressWarnings"})
     public static void main(String[] args) {
-        final JFrame application = new JFrame("LogiEEEEEEmple");
+        final JFrame application = new JFrame("Recipe Search");
         application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        application.setLayout(new CardLayout());
+        application.setLayout(new BoxLayout(application.getContentPane(),BoxLayout.X_AXIS));
         final SearchView searchView = new SearchView(new SearchViewModel());
         application.add(searchView, searchView.getViewName());
         application.setVisible(true);

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 public class RecipeInput {
-    private CommonUser user;
     private Recipe recipe;
     private CommonUser user;
 

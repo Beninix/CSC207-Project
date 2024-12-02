@@ -136,7 +136,7 @@ public class AppBuilder {
      */
     public AppBuilder addRecipeView() {
         recipeViewModel = new RecipeViewModel();
-        recipeView = new RecipeView(recipeViewModel);
+        recipeView = new RecipeView(recipeViewModel, null);
         cardPanel.add(recipeView, recipeView.getViewName());
         return this;
     }
