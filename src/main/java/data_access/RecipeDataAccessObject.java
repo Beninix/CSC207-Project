@@ -2,7 +2,9 @@ package data_access;
 
 import entity.Recipe;
 import use_case.save_recipe.RecipeDataAccessInterface;
-import entity.CommonUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,30 +24,30 @@ import java.util.List;
  * of the API for more details.
  */
 public class RecipeDataAccessObject implements RecipeDataAccessInterface {
-    private final List<Recipe> recipeStorage;
 
-    public RecipeDataAccessObject() {
+    private List<Recipe> recipeStorage;
+
+    public RecipeDataAccessObject(Recipe recipe) {
+
         this.recipeStorage = new ArrayList<>();
     }
 
     @Override
     public boolean existsByName(String recipeName) {
-        return recipeStorage.stream().anyMatch(recipe -> recipe.getName().equals(recipeName));
+
+        return recipeStorage.stream().anyMatch(recipe -> recipe.getName().equalsIgnoreCase(recipeName));
     }
 
     @Override
-    public void save(Recipe recipe) {
-        if (!existsByName(recipe.getName())) {
-            recipeStorage.add(recipe);
-        } else {
-            throw new IllegalArgumentException("Recipe with the same name already exists.");
-        }
+    public Recipe getRecipeName(String recipeName) {
+        return null;
     }
 
     @Override
-    public Recipe findByName(String recipeName) {
+    public Recipe getRecipe(String recipeName) {
         return recipeStorage.stream()
-                .filter(recipe -> recipe.getName().equals(recipeName))
+                .filter(recipe -> recipe.getName().equalsIgnoreCase(recipeName))
+
                 .findFirst()
                 .orElse(null);
     }

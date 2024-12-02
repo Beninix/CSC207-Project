@@ -1,5 +1,8 @@
 package interface_adapter.recipe;
 
+
+import entity.CommonUser;
+
 import entity.Recipe;
 
 /**
@@ -7,27 +10,27 @@ import entity.Recipe;
  */
 public class RecipeState {
     private String recipeName = "";
-    private String recipeError;
-    private Recipe recipe;
 
-    public String getRecipeName(){
-        return recipeName;
+    private CommonUser commonUser = null;
+    private Recipe recipe = null;
+
+    public String getRecipeName(){return recipeName;
     }
 
-    public String getRecipeError(){return recipeError;}
+    public void setRecipeName(String recipeName){}
 
-    public void setRecipe(Recipe recipe){
+    public CommonUser getUser() {
+        return commonUser;
+    }
+
+    public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
 
-    public Recipe getRecipe(){return recipe;}
+    public void setUser(CommonUser user) {this.commonUser = user;}
 
-    public void setRecipeError(String recipeError){
-        this.recipeError = recipeError;
-    }
-
-    public void setRecipeName(String recipeName){
-        this.recipeName = this.recipe.getName();
+    public Recipe getNewRecipe() {
+        return this.recipe;
     }
 
 }

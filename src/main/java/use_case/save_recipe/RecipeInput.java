@@ -9,11 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 public class RecipeInput {
+    private CommonUser user;
     private Recipe recipe;
     private CommonUser user;
 
-    public RecipeInput(Recipe recipe) {
+    public RecipeInput(CommonUser user, Recipe recipe) {
+
         this.recipe = recipe;
+        this.user = user;
     }
 
     public void printRecipe() {
@@ -67,8 +70,8 @@ public class RecipeInput {
         // this is new! and will def cause a merge conflict
     }
 
-    public String getUser() {
-        return user.getName();
+    public CommonUser getUser() {
+        return user;
     }
 
 }

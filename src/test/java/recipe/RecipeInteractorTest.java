@@ -1,6 +1,8 @@
 package recipe;
 
-import data_access.InMemoryRecipeDAO;
+
+import data_access.RecipeDataAccessObject;
+
 import entity.*;
 import org.junit.Test;
 import use_case.save_recipe.*;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class RecipeInteractorTest {
 
@@ -30,29 +32,28 @@ public class RecipeInteractorTest {
         diets.put("glutenFree",false);
         diets.put("dairyFree",true);
         Nutrition nutrition = new Nutrition(500, 3, 20, 4, 1, 2, 15);
-        Recipe recipeTester = new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
-        RecipeInput recipeInput = new RecipeInput(recipeTester);
-        UserFactory factory = new CommonUserFactory();
-        User user = factory.create("Paul", "password");
-        RecipeDataAccessInterface recipeInter = new InMemoryRecipeDAO(user, recipeTester);
 
-        recipeInter.save(recipeTester);
+        Recipe recipe = new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
+
+        CommonUser user = new CommonUser("a","b");
+        RecipeInput recipeInput = new RecipeInput(user, recipe);
+        RecipeDataAccessInterface recipeDAO = new RecipeDataAccessObject(recipe);
 
         RecipeOutputBoundary successPresenter = new RecipeOutputBoundary() {
-
             @Override
             public void prepareSuccessView(RecipeOutputData recipeOutput) {
-                assertEquals(user.getRecipe(recipeTester.getName()), recipeInput.getRecipe());
+                assertNotNull(user.getRecipe(recipe.getName()));
             }
 
             @Override
-            public void prepareFailView(String errorMessage) {
-                fail("Recipe was not added properly");
-            }
-        };
+            public void prepareFailView(String sameRecipeError) {
+                fail("Use case was not properly added.");
 
-        // RecipeInputBoundary interactor = new RecipeInteractor(successPresenter, recipeInter);
-        // interactor.execute(recipeInput);
+            }
+
+        };
+        RecipeInputBoundary interactor = new RecipeInteractor(recipeDAO, successPresenter);
+        interactor.execute(recipeInput);
 
     }
 

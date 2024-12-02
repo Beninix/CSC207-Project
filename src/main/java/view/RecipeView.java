@@ -41,11 +41,15 @@ public class RecipeView extends JPanel implements ActionListener, PropertyChange
         buttons.add(cancelRecipeButton);
 
         addRecipeButton.addActionListener(
-                e -> {
-                    if (e.getSource().equals(addRecipeButton)) {
-                        final RecipeState currentState = recipeViewModel.getState();
 
-                        recipeControl.execute(currentState.getRecipe());
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(addRecipeButton)) {
+                            final RecipeState currentState = recipeViewModel.getState();
+
+                            recipeControl.execute(currentState.getUser(), currentState.getNewRecipe());
+                        }
+
                     }
                 }
         );
