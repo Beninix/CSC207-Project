@@ -1,6 +1,7 @@
 package view;
 
 import interface_adapter.recipe.RecipeControl;
+import interface_adapter.recipe.RecipeState;
 import interface_adapter.recipe.RecipeViewModel;
 
 import javax.swing.*;
@@ -17,9 +18,9 @@ import java.beans.PropertyChangeListener;
 
 public class RecipeView extends JPanel implements ActionListener, PropertyChangeListener  {
 
-    private final String viewName = "recipe view";
+    private final String viewName = "Saving Recipe";
 
-    private final String recipeView = "Bookmarks";
+    private final String recipeView = "Save";
     private final RecipeViewModel recipeViewModel;
 
     private final JButton addRecipeButton;
@@ -28,6 +29,7 @@ public class RecipeView extends JPanel implements ActionListener, PropertyChange
 
     public RecipeView(RecipeViewModel recipeViewModel) {
         this.recipeViewModel = recipeViewModel;
+        this.recipeViewModel.addPropertyChangeListener(this);
 
         final JLabel title = new JLabel("Bookmark recipe?");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -37,6 +39,19 @@ public class RecipeView extends JPanel implements ActionListener, PropertyChange
         buttons.add(addRecipeButton);
         cancelRecipeButton = new JButton("Cancel");
         buttons.add(cancelRecipeButton);
+
+        addRecipeButton.addActionListener(
+                e -> {
+                    if (e.getSource().equals(addRecipeButton)) {
+                        final RecipeState currentState = recipeViewModel.getState();
+
+                        recipeControl.execute(currentState.getRecipe());
+                    }
+                }
+        );
+
+        cancelRecipeButton.addActionListener(this);
+
     }
 
     public String getViewName() { return viewName; }
