@@ -13,10 +13,15 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import interface_adapter.ExportCalendar.ExportCalendarController;
 import interface_adapter.change_password.ChangePasswordController;
 import interface_adapter.change_password.LoggedInState;
 import interface_adapter.change_password.LoggedInViewModel;
 import interface_adapter.logout.LogoutController;
+import interface_adapter.ExportCalendar.ExportCalendarPresenter;
+import data_access.InMemoryCalendarDAO;
+import use_case.ExportCalendar.ExportCalendarInteractor;
+
 
 /**
  * The View for when the user is logged into the program.
@@ -28,6 +33,10 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     private final JLabel passwordErrorField = new JLabel();
     private ChangePasswordController changePasswordController;
     private LogoutController logoutController;
+    private ExportCalendarController exportCalendarController;
+    private InMemoryCalendarDAO inMemoryCalendarDAO;
+    private ExportCalendarPresenter exportCalendarPresenter;
+
 
     private final JLabel username;
 
@@ -36,8 +45,9 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     private final JTextField passwordInputField = new JTextField(15);
     private final JButton changePassword;
 
-    public LoggedInView(LoggedInViewModel loggedInViewModel) {
+    public LoggedInView(LoggedInViewModel loggedInViewModel, ExportCalendarController exportController) {
         this.loggedInViewModel = loggedInViewModel;
+        this.exportCalendarController = exportController;
         this.loggedInViewModel.addPropertyChangeListener(this);
 
         final JLabel title = new JLabel("Logged In Screen");
@@ -55,6 +65,29 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
 
         changePassword = new JButton("Change Password");
         buttons.add(changePassword);
+
+        // Initialize the InMemoryCalendarDAO
+        InMemoryCalendarDAO inMemoryCalendarDAO = new InMemoryCalendarDAO();
+
+        // Initialize ExportCalendarInteractor and ExportCalendarController
+        ExportCalendarInteractor interactor = new ExportCalendarInteractor(inMemoryCalendarDAO);
+        ExportCalendarController exportCalendarController = new ExportCalendarController(interactor);
+
+        // Inside LoggedInView
+        JButton exportCalendar = new JButton("Download Calendar Export");
+        buttons.add(exportCalendar);
+
+            // Assuming you have an instance of ExportCalendarPresenter
+        exportCalendar.addActionListener(evt -> {
+            if (evt.getSource().equals(exportCalendar)) {
+                exportCalendarPresenter.handleExportAction();
+            }
+        });
+
+
+
+
+
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -110,6 +143,14 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
                     }
                 }
         );
+        exportCalendar.addActionListener(
+                evt -> {
+                    if (evt.getSource().equals(exportCalendar)) {
+                        exportCalendarController.handleExport();
+//                        JOptionPane.showMessageDialog(null, "Export initiated!");
+                    }
+                }
+        );
 
         this.add(title);
         this.add(usernameInfo);
@@ -144,5 +185,8 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
     public void setLogoutController(LogoutController logoutController) {
         // TODO: save the logout controller in the instance variable.
         this.logoutController = logoutController;
+    }
+    public void setExportCalendarController(ExportCalendarController exportCalendarController) {
+        this.exportCalendarController = exportCalendarController;
     }
 }
