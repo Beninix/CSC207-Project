@@ -1,8 +1,10 @@
-package interface_adapter.recipe_collection;
+package interface_adapter.recipeCollection;
 
 import interface_adapter.ViewModel;
-import interface_adapter.calendar.CalendarState;
 
+/**
+ * The View Model for the Recipe Collection View.
+ */
 public class RecipeCollectionViewModel extends ViewModel<RecipeCollectionState> {
 
     public RecipeCollectionViewModel() {
