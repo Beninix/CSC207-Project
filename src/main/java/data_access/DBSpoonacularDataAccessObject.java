@@ -97,7 +97,7 @@ public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInter
 
         }
         catch (IOException | JSONException ex) {
-            throw new RuntimeException(ex);
+            throw new use_case.spoonacular.DataAccessException(ex.getMessage());
         }
     }
     public Recipe jsonToRecipe(JSONObject recipeJSON) {
