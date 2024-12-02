@@ -6,6 +6,9 @@ import use_case.save_recipe.RecipeDataAccessInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The DAO for accessing recipes in the database.
  * <p>This class demonstrates how your group can use the password-protected user
@@ -21,14 +24,17 @@ import java.util.List;
  * of the API for more details.
  */
 public class RecipeDataAccessObject implements RecipeDataAccessInterface {
+
     private List<Recipe> recipeStorage;
 
     public RecipeDataAccessObject(Recipe recipe) {
+
         this.recipeStorage = new ArrayList<>();
     }
 
     @Override
     public boolean existsByName(String recipeName) {
+
         return recipeStorage.stream().anyMatch(recipe -> recipe.getName().equalsIgnoreCase(recipeName));
     }
 
@@ -41,6 +47,7 @@ public class RecipeDataAccessObject implements RecipeDataAccessInterface {
     public Recipe getRecipe(String recipeName) {
         return recipeStorage.stream()
                 .filter(recipe -> recipe.getName().equalsIgnoreCase(recipeName))
+
                 .findFirst()
                 .orElse(null);
     }

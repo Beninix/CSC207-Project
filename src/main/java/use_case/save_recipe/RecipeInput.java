@@ -11,6 +11,7 @@ import java.util.Map;
 public class RecipeInput {
     private CommonUser user;
     private Recipe recipe;
+    private CommonUser user;
 
     public RecipeInput(CommonUser user, Recipe recipe) {
 
@@ -72,4 +73,5 @@ public class RecipeInput {
     public CommonUser getUser() {
         return user;
     }
+
 }

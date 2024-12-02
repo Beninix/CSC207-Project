@@ -1,6 +1,8 @@
 package recipe;
 
+
 import data_access.RecipeDataAccessObject;
+
 import entity.*;
 import org.junit.Test;
 import use_case.save_recipe.*;
@@ -30,6 +32,7 @@ public class RecipeInteractorTest {
         diets.put("glutenFree",false);
         diets.put("dairyFree",true);
         Nutrition nutrition = new Nutrition(500, 3, 20, 4, 1, 2, 15);
+
         Recipe recipe = new Recipe(name,ingredients,instructions,cookingTime,diets,nutrition);
 
         CommonUser user = new CommonUser("a","b");
@@ -51,6 +54,7 @@ public class RecipeInteractorTest {
         };
         RecipeInputBoundary interactor = new RecipeInteractor(recipeDAO, successPresenter);
         interactor.execute(recipeInput);
+
     }
 
 

@@ -1,6 +1,8 @@
 package interface_adapter.recipe;
 
+
 import entity.CommonUser;
+
 import entity.Recipe;
 
 /**
@@ -8,6 +10,7 @@ import entity.Recipe;
  */
 public class RecipeState {
     private String recipeName = "";
+
     private CommonUser commonUser = null;
     private Recipe recipe = null;
 
@@ -29,4 +32,5 @@ public class RecipeState {
     public Recipe getNewRecipe() {
         return this.recipe;
     }
+
 }

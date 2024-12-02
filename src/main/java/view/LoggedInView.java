@@ -147,7 +147,7 @@ public class LoggedInView extends JPanel implements PropertyChangeListener {
                 evt -> {
                     if (evt.getSource().equals(exportCalendar)) {
                         exportCalendarController.handleExport();
-                        JOptionPane.showMessageDialog(null, "Export initiated!");
+//                        JOptionPane.showMessageDialog(null, "Export initiated!");
                     }
                 }
         );

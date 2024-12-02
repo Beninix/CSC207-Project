@@ -7,10 +7,12 @@ import view.RecipeView;
 
 public class RecipePresenter implements RecipeOutputBoundary {
 
+
     private final RecipeViewModel recipeViewModel;
     private final ViewManagerModel viewManagerModel;
 
     public RecipePresenter(RecipeViewModel recipeViewModel, ViewManagerModel viewManagerModel) {
+
         this.recipeViewModel = recipeViewModel;
         this.viewManagerModel = viewManagerModel;
     }
@@ -18,6 +20,7 @@ public class RecipePresenter implements RecipeOutputBoundary {
     @Override
     public void prepareSuccessView(RecipeOutputData recipeOutput) {
         final RecipeState recipeState = recipeViewModel.getState();
+
         recipeState.setRecipeName(recipeOutput.getRecipeName());
         this.recipeViewModel.setState(recipeState);
         this.recipeViewModel.firePropertyChanged();
@@ -25,10 +28,13 @@ public class RecipePresenter implements RecipeOutputBoundary {
         this.viewManagerModel.setState(recipeViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
 
+        this.viewManagerModel.setState(recipeViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();
     }
 
     @Override
     public void prepareFailView(String sameRecipeError) {
+
         final RecipeState recipeState = recipeViewModel.getState();
         recipeState.setRecipeName(sameRecipeError);
         this.recipeViewModel.firePropertyChanged();
