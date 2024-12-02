@@ -1,4 +1,5 @@
-package use_case.ExportCalendar;
+package use_case.export_calendar;
+
 import java.util.List;
 
 /**

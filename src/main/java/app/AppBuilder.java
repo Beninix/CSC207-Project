@@ -38,7 +38,7 @@ import use_case.signup.SignupInputBoundary;
 import use_case.signup.SignupInteractor;
 import use_case.signup.SignupOutputBoundary;
 import view.*;
-import interface_adapter.ExportCalendar.ExportCalendarController;
+import interface_adapter.export_calendar.ExportCalendarController;
 
 /**
  * The AppBuilder class is responsible for putting together the pieces of

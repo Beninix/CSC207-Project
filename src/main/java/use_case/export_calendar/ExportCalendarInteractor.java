@@ -1,12 +1,12 @@
-package use_case.ExportCalendar;
+package use_case.export_calendar;
 
-import entity.ExportCalendar;
-
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import entity.ExportCalendar;
 
 /**
- * handles the business logic for exporting calendar events to an ICS file.
+ * Handles the business logic for exporting calendar events to an ICS file.
  *
  */
 public class ExportCalendarInteractor {
@@ -14,7 +14,6 @@ public class ExportCalendarInteractor {
 
     /**
      * Constructs an ExportCalendarInteractor with the specified data access interface.
-     *
      * @param dataAccess the data access interface for retrieving calendar events.
      */
     public ExportCalendarInteractor(ExportCalendarDataAccessInterface dataAccess) {
@@ -29,12 +28,24 @@ public class ExportCalendarInteractor {
      */
     public void exportCalendar(String filename) throws IOException {
         // Fetch the calendar events from the DAO
-        List<String> events = dataAccess.getCalendarEvents();
+        final List<String> events = dataAccess.getCalendarEvents();
+        StringBuilder sb = new StringBuilder();
 
-        // Use the ExportCalendar entity to perform the export
-        ExportCalendar exportCalendar = new ExportCalendar();
-        exportCalendar.exportToICS(filename, events);
+        sb.append("BEGIN:VCALENDAR\n");
+        sb.append("VERSION:2.0\n");
+        sb.append("PRODID:-//YourApp//EN\n");
+
+        for (String event : events) {
+            sb.append("BEGIN:VEVENT\n");
+            sb.append(event);
+            sb.append("\nEND:VEVENT\n");
+        }
+
+        sb.append("END:VCALENDAR\n");
+
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write(sb.toString());
+        }
     }
 }
-
 

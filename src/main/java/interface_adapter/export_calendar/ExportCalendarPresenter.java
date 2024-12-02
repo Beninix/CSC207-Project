@@ -1,4 +1,4 @@
-package interface_adapter.ExportCalendar;
+package interface_adapter.export_calendar;
 
 /**
  * The ExportCalendarPresenter serves as a bridge between the user interface and the controller for exporting the calendar.
