@@ -1,6 +1,7 @@
 package view;
 
 import interface_adapter.recipe.RecipeControl;
+import interface_adapter.recipe.RecipeState;
 import interface_adapter.recipe.RecipeViewModel;
 
 import javax.swing.*;
@@ -37,6 +38,20 @@ public class RecipeView extends JPanel implements ActionListener, PropertyChange
         buttons.add(addRecipeButton);
         cancelRecipeButton = new JButton("Cancel");
         buttons.add(cancelRecipeButton);
+
+        addRecipeButton.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        if (e.getSource().equals(addRecipeButton)) {
+                            final RecipeState currentState = recipeViewModel.getState();
+
+                            recipeControl.execute(currentState.getUser(), currentState.getNewRecipe());
+                        }
+                    }
+                }
+        );
+
+        cancelRecipeButton.addActionListener(this);
     }
 
     public String getViewName() { return viewName; }

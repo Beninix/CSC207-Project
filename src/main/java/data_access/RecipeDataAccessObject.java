@@ -2,7 +2,9 @@ package data_access;
 
 import entity.Recipe;
 import use_case.save_recipe.RecipeDataAccessInterface;
-import entity.CommonUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The DAO for accessing recipes in the database.
@@ -19,29 +21,27 @@ import entity.CommonUser;
  * of the API for more details.
  */
 public class RecipeDataAccessObject implements RecipeDataAccessInterface {
-    private final Recipe recipe;
-    private final CommonUser user;
+    private List<Recipe> recipeStorage;
 
-    public RecipeDataAccessObject(Recipe recipe, CommonUser user) {
-        this.recipe = recipe;
-        this.user = user;
+    public RecipeDataAccessObject(Recipe recipe) {
+        this.recipeStorage = new ArrayList<>();
     }
 
     @Override
     public boolean existsByName(String recipeName) {
-        for (int i = 0; i < user.getRecipeCollection().size(); i++ ) {
-            if (user.getRecipeCollection().get(i).getName().equals(recipeName)) {
-                return true;
-            }
-        }
-        return false;
+        return recipeStorage.stream().anyMatch(recipe -> recipe.getName().equalsIgnoreCase(recipeName));
     }
 
     @Override
-    public void save(Recipe recipe) {
-        user.addRecipe(recipe);
+    public Recipe getRecipeName(String recipeName) {
+        return null;
     }
 
-    public String get() {return recipe.getName();}
-
+    @Override
+    public Recipe getRecipe(String recipeName) {
+        return recipeStorage.stream()
+                .filter(recipe -> recipe.getName().equalsIgnoreCase(recipeName))
+                .findFirst()
+                .orElse(null);
+    }
 }

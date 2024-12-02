@@ -11,4 +11,9 @@ public class RecipeViewModel extends ViewModel<RecipeState> {
         super("bookmark");
         setState(new RecipeState());
     }
+
+    @Override
+    public RecipeState getState() {
+        return super.getState();
+    }
 }

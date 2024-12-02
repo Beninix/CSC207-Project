@@ -1,27 +1,29 @@
 package use_case.save_recipe;
 
+import entity.CommonUser;
 import entity.Recipe;
 
 public class RecipeInteractor implements RecipeInputBoundary {
-   private final RecipeOutputBoundary recipeOutputBoundary;
-   private final RecipeDataAccessInterface recipeDataAccessObject;
+    private final RecipeDataAccessInterface recipeDataAccessObject;
+    private final RecipeOutputBoundary recipeOutputBoundary;
 
-   public RecipeInteractor(RecipeOutputBoundary recipeOutputBoundary, RecipeDataAccessInterface recipeDataAccessObject) {
+    public RecipeInteractor(RecipeDataAccessInterface recipeDataAccessObject, RecipeOutputBoundary recipeOutputBoundary) {
        this.recipeOutputBoundary = recipeOutputBoundary;
        this.recipeDataAccessObject = recipeDataAccessObject;
    }
 
    @Override
-   public void execute(RecipeInput recipeInput) {
-      final String recipeName = recipeDataAccessObject.get();
-      final Recipe chosenRecipe = recipeInput.getRecipe();
-      if (!recipeDataAccessObject.existsByName(chosenRecipe.getName())) {
-         recipeDataAccessObject.save(chosenRecipe);
-         final RecipeOutputData recipeOutput = new RecipeOutputData(recipeName, false);
-         recipeOutputBoundary.prepareSuccessView(recipeOutput);
-      }
-      else {
-         recipeOutputBoundary.prepareFailView("Recipe already bookmarked.");
+      public void execute(RecipeInput recipeInput) {
+         final Recipe chosenRecipe = recipeInput.getRecipe();
+         final CommonUser user = recipeInput.getUser();
+
+         if (user.getRecipe(chosenRecipe.getName()) != null) {
+            recipeOutputBoundary.prepareFailView("Recipe is already in bookmarks");
+         }
+         else {
+         user.addRecipe(chosenRecipe);
+         final RecipeOutputData recipeOutputData = new RecipeOutputData(chosenRecipe.getName(), false);
+         recipeOutputBoundary.prepareSuccessView(recipeOutputData);
       }
    }
 }
