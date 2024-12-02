@@ -35,16 +35,21 @@ The program requires Java in order to run. Any version 17 JDK and 11+ will work.
 1. Download [Java 17.](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 2. Download [Intellij-IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac) <br>
    If you are a student, you can use Intellij Ultimate for free by signing up for [JetBrains Products for Learning.](https://www.jetbrains.com/shop/eform/students) <br>
-   You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge.
+   You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge. <br>
+   *A common issue is trying to find Community Edition. Scroll down on the link provided and you will find the link at the bottom of the page!* <br>
+   ![IntelliJ Community Issue](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/IntelliJ%20Community%20Issue.png)
 
 ## Usage
 1. [Fork](#1-fork-the-project) the repository and add to your local machine.
 2. Go to **java -> src -> main -> app -> MainApplication.java**
-3. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
-4. Enter your username and password to get started on meal prepping!
+![Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Access%20Software.png)
+4. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
+![Running Main Application (Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Running%20Main%20Application%20(Access%20Software).png)
+6. Enter your username and password to get started on meal prepping!
+![Login Page (Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Login%20Page%20(Access%20Software).png)
 
 ## License
-As of November 2024, the project and its materials are the property of the University of Toronto. The project may only be used for personal, non-commercial purposes.
+As of November 2024, the project and its materials are the property of the University of Toronto. The project can **only** be used for personal, non-commercial purposes.
 
 ## Feedback
 Feedback is encouraged and welcomed. Please only submit *valid* feedback through pull requests.
@@ -68,14 +73,16 @@ Forking will be the essential first step for you to able to apply your contribut
 Steps: <br>
 1. Navigate to the project repository on GitHub.
 2. Click the **Fork** button in the upper-right corner to create a copy of the repository under your account.
-3. Clone the fork to your local machine <br>
+   ![Forking Guide](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Forking%20Guide.png)
+4. Clone the fork to your local machine by typing the Git commands in your terminal below. <br>
 
 `git clone https://github.com/Beninix/CSC207-Project.git ` <br>
 `cd CSC207-Project `
 
-   If you are using Intellij
+   Another Alternative (If Step 4. doesn't work)
    1. Click on **New Project**. Paste the fork repo URL in the url box as displayed below.
 Now you're all ready for step 2: creating a merge request!
+![Intellij Fork](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Intellij%20Fork.png)
 
 ### 2. Creating a merge request
 1. Create a branch name using Git in your local machine and checkout on that branch.
