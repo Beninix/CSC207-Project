@@ -1,29 +1,25 @@
 package entity;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
 public class ExportCalendar {
+    private List<String> events;  // A list of event strings or event objects
+    private String calendarName;  // Name of the calendar or other relevant details
 
-    public void exportToICS(String filename, List<String> events) throws IOException {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("BEGIN:VCALENDAR\n");
-        sb.append("VERSION:2.0\n");
-        sb.append("PRODID:-//YourApp//EN\n");
-
-        for (String event : events) {
-            sb.append("BEGIN:VEVENT\n");
-            sb.append(event);
-            sb.append("\nEND:VEVENT\n");
-        }
-
-        sb.append("END:VCALENDAR\n");
-
-        try (FileWriter writer = new FileWriter(filename)) {
-            writer.write(sb.toString());
-        }
+    // Constructor to initialize ExportCalendar with a list of events and a calendar name
+    public ExportCalendar(List<String> events, String calendarName) {
+        this.events = events;
+        this.calendarName = calendarName;
     }
-}
 
+    // Getters for the attributes
+    public List<String> getEvents() {
+        return events;
+    }
+
+    public String getCalendarName() {
+        return calendarName;
+    }
+
+    // Optionally, you can add setters if needed, though it might not be required depending on your use case.
+}

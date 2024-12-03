@@ -2,7 +2,8 @@ package data_access;
 
 import entity.ExportCalendar;
 import entity.Recipe;
-import use_case.ExportCalendar.ExportCalendarDataAccessInterface;
+import use_case.export_calendar.ExportCalendarDataAccessInterface;
+import use_case.export_calendar.ExportCalendarInteractor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -124,27 +125,10 @@ public class InMemoryCalendarDAO implements ExportCalendarDataAccessInterface {
     }
 
     // Test the DAO
-    public static void main(String[] args) {
-        InMemoryCalendarDAO testWeekDAO = new InMemoryCalendarDAO();
-        List<String> events = testWeekDAO.getCalendarEvents();
+    public static void main(String[] args) throws IOException {
+        InMemoryCalendarDAO calendarDAO = new InMemoryCalendarDAO();
+        ExportCalendarInteractor interactor = new ExportCalendarInteractor(calendarDAO);
 
-        // Print the events to verify if they are being correctly generated
-        if (events.isEmpty()) {
-            System.out.println("No events found!");
-        } else {
-            // Print each event to verify the event generation
-            for (String event : events) {
-                System.out.println("Event: " + event);
-            }
-        }
-
-        // Create an ExportCalendar instance and export to ICS
-        ExportCalendar exporter = new ExportCalendar();
-        try {
-            // Specify the output file name for the ICS
-            exporter.exportToICS("calendar.ics", events);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        interactor.exportCalendar("calendar.ics");
     }
 }

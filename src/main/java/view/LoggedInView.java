@@ -13,14 +13,14 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import interface_adapter.ExportCalendar.ExportCalendarController;
+import interface_adapter.export_calendar.ExportCalendarController;
 import interface_adapter.change_password.ChangePasswordController;
 import interface_adapter.change_password.LoggedInState;
 import interface_adapter.change_password.LoggedInViewModel;
 import interface_adapter.logout.LogoutController;
-import interface_adapter.ExportCalendar.ExportCalendarPresenter;
+import interface_adapter.export_calendar.ExportCalendarPresenter;
 import data_access.InMemoryCalendarDAO;
-import use_case.ExportCalendar.ExportCalendarInteractor;
+import use_case.export_calendar.ExportCalendarInteractor;
 
 
 /**
