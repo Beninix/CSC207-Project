@@ -1,21 +1,15 @@
 package use_case.save_recipe;
 import entity.Recipe;
 
+import java.util.List;
+
 
 public interface RecipeDataAccessInterface {
-    /**
-     * Checks if the recipe exists.
-     * @param recipeName
-     * @return true if recipe name does exist; false otherwise
-     */
     boolean existsByName(String recipeName);
 
-    /**
-     * Saves the recipe into user's bookmarks
-     * @param recipe
-     */
-    void save(Recipe recipe);
 
-    String get();
+    Recipe getRecipeName(String recipeName);
 
+
+    Recipe getRecipe(String recipeName);
 }

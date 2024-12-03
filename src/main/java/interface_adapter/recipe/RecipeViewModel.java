@@ -8,7 +8,12 @@ import interface_adapter.ViewModel;
 public class RecipeViewModel extends ViewModel<RecipeState> {
 
     public RecipeViewModel() {
-        super("bookmark");
+        super("save");
         setState(new RecipeState());
+    }
+
+    @Override
+    public RecipeState getState() {
+        return super.getState();
     }
 }

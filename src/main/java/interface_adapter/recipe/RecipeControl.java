@@ -1,5 +1,6 @@
 package interface_adapter.recipe;
 
+import entity.CommonUser;
 import entity.Recipe;
 import use_case.save_recipe.RecipeInput;
 import use_case.save_recipe.RecipeInputBoundary;
@@ -11,10 +12,8 @@ public class RecipeControl {
         this.recipeInputInteracter = recipeInputInteractor;
     }
 
-    public void execute(Recipe recipe) {
-        final RecipeInput recipeInputData = new RecipeInput(recipe);
+    public void execute(CommonUser user, Recipe recipe) {
+        final RecipeInput recipeInputData = new RecipeInput(user, recipe);
         recipeInputInteracter.execute(recipeInputData);
     }
 }
-
-
