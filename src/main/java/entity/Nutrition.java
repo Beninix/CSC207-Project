@@ -27,6 +27,17 @@ public class Nutrition {
         System.out.println("Cholesterol: " + cholesterol);
         System.out.println("Fat: " + fat);
     }
+
+    public String toString(){
+        return "Calories: " + calories +
+                ", Protein: " + protein +
+                "g, Sugar: " + sugar +
+                "g, Fiber: " + fiber +
+                "mg, Sodium: " + sodium +
+                "mg, Cholesterol: " + cholesterol +
+                "g, Fat: " + fat + "g";
+    }
+
     public int getCholesterol() {
         return cholesterol;
     }

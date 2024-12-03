@@ -23,27 +23,29 @@ public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInter
     private static final String ADDNUTRITION = "&addRecipeNutrition=true";
     @Override
     public String filterDiets(Map<String, Boolean> diets){
-        if(diets!=null){
+        if(!diets.isEmpty()){
             StringBuilder output = new StringBuilder();
             output.append("&diet=");
             for(Map.Entry<String,Boolean> diet : diets.entrySet()){
                 if(diet.getValue()){
-                    output.append("," + diet.getKey());
+                    output.append(",").append(diet.getKey());
                 }
             }
-            output.deleteCharAt(6);
+            if(output.length() > 6){
+                output.deleteCharAt(6);
+            }
             return output.toString();
         }
         return "";
     }
     public String filterIngredients(List<String> ingredients){
-        if(ingredients!=null){
+        if(ingredients!=null && !ingredients.isEmpty()){
             StringBuilder output = new StringBuilder();
-            output.append("&ingredients=");
+            output.append("&includeIngredients=");
             for(String ingredient: ingredients){
-                output.append("," + ingredient);
+                output.append(",").append(ingredient);
             }
-            output.deleteCharAt(6);
+            output.deleteCharAt(20);
             return output.toString();
         }
         return "";
@@ -84,10 +86,10 @@ public class DBSpoonacularDataAccessObject implements SpoonacularDataAccessInter
                         + filters)
                 .build();
         try {
+            System.out.println(request);
             final Response response = client.newCall(request).execute();
 
             final JSONObject responseBody = new JSONObject(response.body().string());
-
             final JSONArray searchJSONArray = responseBody.getJSONArray(RESULT);
             List<Recipe> recipes = new ArrayList<>();
             for (int i = 0; i < searchJSONArray.length(); i++) {
