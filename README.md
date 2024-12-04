@@ -35,16 +35,21 @@ The program requires Java in order to run. Any version 17 JDK and 11+ will work.
 1. Download [Java 17.](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 2. Download [Intellij-IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac) <br>
    If you are a student, you can use Intellij Ultimate for free by signing up for [JetBrains Products for Learning.](https://www.jetbrains.com/shop/eform/students) <br>
-   You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge.
+   You can also use [Intellij IDEA Community](https://www.jetbrains.com/idea/download/?section=mac) free of charge. <br>
+   *A common issue is trying to find Community Edition. Scroll down on the link provided and you will find the link at the bottom of the page!* <br>
+   ![IntelliJ Community Issue](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/IntelliJ%20Community%20Issue.png)
 
 ## Usage
 1. [Fork](#1-fork-the-project) the repository and add to your local machine.
 2. Go to **java -> src -> main -> app -> MainApplication.java**
-3. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
-4. Enter your username and password to get started on meal prepping!
+![Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Access%20Software.png)
+4. Run MainApplication.java by clicking the green arrowing on the top right corner of the screen.
+![Running Main Application (Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Running%20Main%20Application%20(Access%20Software).png)
+6. Enter your username and password to get started on meal prepping!
+![Login Page (Access Software](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Login%20Page%20(Access%20Software).png)
 
 ## License
-As of November 2024, the project and its materials are the property of the University of Toronto. The project may only be used for personal, non-commercial purposes.
+As of November 2024, the project and its materials are the property of the University of Toronto. The project can **only** be used for personal, non-commercial purposes.
 
 ## Feedback
 Feedback is encouraged and welcomed. Please only submit *valid* feedback through pull requests.
@@ -68,14 +73,16 @@ Forking will be the essential first step for you to able to apply your contribut
 Steps: <br>
 1. Navigate to the project repository on GitHub.
 2. Click the **Fork** button in the upper-right corner to create a copy of the repository under your account.
-3. Clone the fork to your local machine <br>
+   ![Forking Guide](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Forking%20Guide.png)
+4. Clone the fork to your local machine by typing the Git commands in your terminal below. <br>
 
 `git clone https://github.com/Beninix/CSC207-Project.git ` <br>
 `cd CSC207-Project `
 
-   If you are using Intellij
+   Another Alternative (If Step 4. doesn't work)
    1. Click on **New Project**. Paste the fork repo URL in the url box as displayed below.
 Now you're all ready for step 2: creating a merge request!
+![Intellij Fork](https://github.com/Beninix/CSC207-Project/blob/main/src/resources/Intellij%20Fork.png)
 
 ### 2. Creating a merge request
 1. Create a branch name using Git in your local machine and checkout on that branch.
@@ -92,82 +99,3 @@ Now you're all ready for step 2: creating a merge request!
 ### Merging protocols
 1. All merge requests will be peer reviewed by a contributor for accuracy, correctness, and performance. Feedback may be sent for further revisions and/or comments.
 2. Once approved, your request will be merged into the main branch.
-
-## User Stories
-### Lillian C. User Story
-* Sandra wants to select one recipe from the search results or recipe collection so that she can view the full instructions and nutritional information.
-### Emily T. User Stories
-* Sandra wants to save a recipe that she likes so that she can access it from her virtual recipe collection.
-* Sandra wants to login so that she can use Bite Wise and access her recipe collection and calendar.
-* Sandra wants to logout so that she can end her session and her recipe collection and calendar will be saved.
-### Sarah K. User Stories
-* Sandra wants to export her Bite Wise calendar, so that she can upload it to her personal digital calendar/organizer.
-* Sandra wants to create an account so that she can use Bite Wise.
-* Sandra wants to change her password so that she can keep her account secure. 
-### Brandon B. User Stories
-* Sandra wants to search through a list of recipes so that she can find recipes to try.
-* Sandra wants to view the list of recipes in her virtual recipe collection.  
-* Sandra wants to filter the list of recipes so that she can find [filtering categories from spoonacular – suggestions: ingredients, diets, calories, cooking time (max) recipes. (diets to add; cheap, sustainable)  
-### Team User Story
-* Sandra wants to navigate through the application's functions so that she can access any function.
-
-## Use Cases DRAFT
-### Search, filter, view list of recipes (Brandon)
-(precondition: user is logged in)
-1. User selects "Search" navigation button.
-2. Search View is made viewable to user.
-3. User enters search term(s).
-4. Optional: User selects filters.
-5. User hits enter.
-6. System returns un/filtered list of results.
-
-### View recipe (Lillian)
-(precondition: Search View or Recipe collection View is viewable to logged in user)
-1. User selects recipe entry.
-2. Recipe View is made viewable to user.
-3. User closes recipe window to return to previous view.
-
-### Add recipe to recipe collection (Emily)
-(precondition: Recipe View is viewable to logged in  user)
-1. User selects "Add to recipe collection" button
-2. Systems returns confirmation message (pop-up)
-3. User closes pop-up.
-
-### View and navigate through application (Lillian)
-(precondition: user is logged in)
-1. User navigates to desired function through top menu and submenus.
-(Default view is search screen; functions available: Search, Recipe Collection, Settings: Change Password, Logout)
-
-### Export calendar format file (Sarah)
-(precondition: Calendar View is viewable to logged in user)
-1. User clicks on "Download Calendar Export"
-2. One week of calendar with the meal plan will be exported to ics format.
-- Please note that the "Download Calendar Export" button is not available in our software because the Calendar feature has not been implemented as originally planned.
-- Export calendar format file still works on our InMemoryCalendarDAO with the mock calendar with the mock recipes.
-
-
-### Logout (Emily)
-(precondition: user is logged in)
-1. User selects "Logout" button.
-2. Login View is made viewable to user.
-
-### Login (Emily)
-(precondition: user is not logged in)
-1. User submits username and password to log in.
-2. Search View is made visible to the user. (Default after logging in)
-
-### Change password (Sarah)
-(precondition: user is logged in)
-1. User selects "Settings" button.
-2. User enters old password and new password.
-3. System returns confirmation message.
-   
-### Create new user (Sarah)
-(precondition: not logged in)
-1. User selects "Create account" button.
-2. User submits username and password.
-4. System returns confirmation message.
-5. Login View is made viewable to user.
-
-## Additional implementations and notes (Team)
-* functionality of removing recipes from recipes collection is not yet implemented.

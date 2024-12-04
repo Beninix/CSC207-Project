@@ -1,9 +1,11 @@
-package interface_adapter.ExportCalendar;
+package interface_adapter.export_calendar;
 
-import use_case.ExportCalendar.ExportCalendarInteractor;
+import use_case.export_calendar.ExportCalendarInteractor;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * The ExportCalendarController is responsible for handling user actions related to exporting the calendar to an ICS file.
@@ -25,21 +27,23 @@ public class ExportCalendarController {
      * If the export is successful, a confirmation message is displayed.
      * If the export fails, an error message is displayed with the reason.
      */
+    @SuppressWarnings({"checkstyle:CatchParameterName", "checkstyle:SuppressWarnings", "checkstyle:EmptyLineSeparator"})
     public void handleExport() {
         // Open a file chooser dialog for user to select save location
-        JFileChooser fileChooser = new JFileChooser();
+        final JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Save ICS File");
         fileChooser.setSelectedFile(new File("calendar.ics"));
 
-        int result = fileChooser.showSaveDialog(null);
+        final int result = fileChooser.showSaveDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = fileChooser.getSelectedFile();
-            String filename = fileToSave.getAbsolutePath();
+            final File fileToSave = fileChooser.getSelectedFile();
+            final String filename = fileToSave.getAbsolutePath();
 
             try {
                 interactor.exportCalendar(filename);
                 JOptionPane.showMessageDialog(null, "ICS file exported successfully!");
-            } catch (Exception e) {
+            }
+            catch (HeadlessException | IOException e) {
                 JOptionPane.showMessageDialog(null, "Failed to export ICS: " + e.getMessage());
             }
         }
